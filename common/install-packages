@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIR=$PWD
+git clone https://github.com/github/hub.git /tmp/hub
+cd /tmp/hub
+./script/build
+mv hub /usr/local/bin
+cd $DIR
+
+npm install coffee-script -g
+npm install nw -g
+curl https://install.meteor.com/ | sh
+

@@ -1,0 +1,63 @@
+#!/bin/bash
+
+aptitude update
+
+#settings
+aptitude install -y gnupg
+aptitude install -y gnome-tweak-tool
+aptitude install -y laptop-mode-tools
+
+#shell
+aptitude install -y zsh
+aptitude install -y terminator
+
+#network
+aptitude install -y curl
+aptitude install -y wget
+aptitude install -y opera
+aptitude install -y icedove
+aptitude install -y enigmail
+wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.02.12_amd64.deb /tmp
+dpkg -i /tmp/dropbox*.deb
+aptitude install -y deluge
+
+#text
+aptitude install -y vim
+aptitude install -y vim-gnome
+aptitude install -y texlive
+
+#monitoring
+aptitude install -y htop
+aptitude install -y glances
+
+#dev
+aptitude install -y build-essential
+aptitude install -y cmake
+aptitude install -y go
+aptitude install -y exuberant-ctags
+wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb /tmp
+dpkg -i /tmp/erlang-solutions_1.0_all.deb
+aptitude install nodejs
+ln -s /usr/local/bin/node $(which nodejs)
+
+#virtualization
+aptitude install -y ansible
+aptitude install -y vagrant
+aptitude install -y virtualbox
+aptitude install -y virtualbox-dkms
+aptitude install -y qemu-kvm
+aptitude install -y libvirt
+aptitude install -y lxc
+
+#draw
+#aptitude install -y gimp
+aptitude install -y inkscape
+
+#media
+aptitude install -y vlc
+aptitude install -y steam
+
+#misc
+aptitude install -y gparted
+aptitude install -y unzip
+

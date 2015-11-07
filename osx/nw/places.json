@@ -1,0 +1,12 @@
+{
+    "name"   : "Places",
+    "main"   : "http://127.0.0.1:3000",
+    "window" : {
+                "width"     : 1080,
+                "height"    : 600,
+                "toolbar"   : true
+               },
+    "single-instance" : "false",
+    "node-remote"   : "<local>"
+}
+

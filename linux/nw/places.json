@@ -1,0 +1,15 @@
+{
+    "name"   : "Places",
+    "main"   : "http://127.0.0.1:3000",
+    "window" : {
+                "width"   : 1900,
+                "height"  : 1200,
+                "toolbar" : true
+               },
+    "webkit" : {
+                "plugin"  : true
+               },
+    "single-instance" : false,
+    "chromium-args"   : "--disable-setuid-sandbox --ignore-gpu-blacklist"
+}
+

@@ -1,0 +1,35 @@
+#!/bin/zsh
+# common zsh aliases and env var
+
+export PATH=$HOME/.bin:$PATH
+
+if [ -f ~/.zshenv.work ]; then
+  source ~/.zshenv.work
+fi
+
+#--------------------
+# directories aliases
+#--------------------
+
+#dev workspaces
+alias cdgodev='cd ~/documents/dev/go'
+
+#--------------------
+# env var
+#--------------------
+
+#go
+export GOPATH="${HOME}/documents/dev/go"
+
+#mpi
+#export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+#cuda
+#export PATH="/opt/cuda/bin:$PATH"
+#export LD_LIBRARY_PATH="/opt/cuda/lib64:/opt/cuda/lib:$LD_LIBRARY_PATH"
+
+#simwave
+#export OPENCL_INCDIR=/opt/cuda/include
+#export OPENCL_LIBDIR=/opt/cuda/lib64
+#export VISU_BINDIR="${HOME}/visu"
+

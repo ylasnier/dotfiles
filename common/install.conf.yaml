@@ -1,0 +1,31 @@
+- shell:
+    - [mkdir -p ~/.vim/tmp, Ensure .vim/tmp directory exists]
+    - [mkdir -p ~/.vim/bundle, Ensure .vim/bundle directory exists]
+    - [mkdir -p ~/.zsh, Ensure .zsh directory exists]
+
+- link:
+    #git
+    ~/.gitconfig:  common/git/gitconfig
+    ~/.config/hub: common/git/hub
+    #vim
+    ~/.vimrc:      common/vim/vimrc
+    ~/.gvimrc:     common/vim/gvimrc
+    ~/.vim/colors: common/vim/colors
+    ~/.vim/bundle/Vundle.vim: common/vim/bundle/Vundle.vim
+    #zsh
+    ~/.zsh:
+      path: common/zsh/zsh
+      force: true
+    ~/.zshrc:  common/zsh/zshrc
+    ~/.zshenv: common/zsh/zshenv
+    #scripts
+    ~/.bin/encrypt-tar: common/bin/encrypt-tar.sh
+    ~/.bin/decrypt-tar: common/bin/decrypt-tar.sh
+    ~/.bin/split-pdf:   common/bin/split-pdf.sh
+
+- shell :
+    - [chsh -s /bin/zsh, Set zsh as login shell]
+    - [vim +PluginInstall +qal, Install vim bundles]
+    - [~/.vim/bundle/YouCompleteMe/install.py  --clang-completer, Compile YouCompleteMe]
+    #- [curl "https://raw.githubusercontent.com/Tarrasch/zsh-bd/master/bd.zsh" > ~/zsh/zsh.bd, Install zsh.bd]
+

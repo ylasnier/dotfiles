@@ -1,0 +1,46 @@
+set columns=87 lines=49 " don't keep the parent terminal size
+set mousemodel=popup " should propose a popup menu on right-click
+"set guifont=Monospace\ 9 " font of choice
+"set guifont=DejaVu\ Sans\ Mono\ Book\ 9 " font of choice
+set guifont=Droid\ Sans\ Mono\ 8 " font of choice
+set guioptions=aie " advanced, try help 'go
+set mousehide " hide the mouse
+set guicursor=a:hor20Cursor
+syntax enable
+set background=dark
+colorscheme base16-tomorrow
+" turn italic from solarized off
+let g:solarized_italic=0
+let g:codeschool_termcolors=256
+"colorize blank lines tildes same as bg (looks like they're gone)
+hi NonText guifg=bg
+set visualbell t_vb= "disable annoying beeps
+"execute "set colorcolumn=" . join(range(81,335), ',')
+"highlight ColorColumn guibg=#1D1F21
+
+"matching unwanted whitespaces (show non-breakable or trailing spaces)
+highlight UnwantedSpace ctermbg=darkred guibg=darkred
+match UnwantedSpace /\s\+$\| /
+au BufWinEnter * match UnwantedSpace /\s\+$\| /
+au InsertEnter * match UnwantedSpace /\s\+\%#\@<!$\| /
+au InsertLeave * match UnwantedSpace /\s\+$\| /
+au BufWinLeave * call clearmatches()
+
+" tab navigation
+nnoremap <C-Left>       <Esc>:tabprevious<CR>
+nnoremap <C-Right>      <Esc>:tabnext<CR>
+nnoremap <C-t>          <Esc>:tabnew<CR>
+"nnoremap <C-w>          <Esc>:tabclose<CR>
+nnoremap <C-w>          <Esc>:bw<CR>
+inoremap <C-Left>       <Esc>:tabprevious<CR>
+inoremap <C-Right>      <Esc>:tabnext<CR>
+inoremap <C-t>          <Esc>:tabnew<CR>
+"inoremap <C-w>          <Esc>:tabclose<CR>
+inoremap <C-w>          <Esc>:bw<CR>
+nnoremap <C-S-Left>     <Esc>:tabm -1<CR>
+nnoremap <C-S-Right>    <Esc>:tabm +1<CR>
+
+"fullscreen mode
+map <silent> <F11>
+\    :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
+

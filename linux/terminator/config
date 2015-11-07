@@ -1,0 +1,109 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  title_transmit_bg_color = "#000000"
+  handle_size = 1
+  inactive_color_offset = 1.0
+  title_inactive_bg_color = "#000000"
+[keybindings]
+  search = <Primary>f
+  group_tab = None
+  paste = <Super>v
+  next_tab = <Primary>Right
+  split_horiz = <Primary><Shift>o
+  new_window = <Primary>n
+  prev_tab = <Primary>Left
+  move_tab_right = <Primary><Shift>Right
+  close_term = <Primary>w
+  move_tab_left = <Primary><Shift>Left
+  new_tab = <Primary>t
+  ungroup_tab = <Super>Down
+  copy = <Super>c
+  hide_window = <Primary><Shift>a
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#272c30:#e9aa9a:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#3e454e:#b85766:#8ec553:#bbab54:#6ea1d9:#ad7fa8:#2aa198:#cccccc"
+    background_image = None
+    custom_command = tmux -2
+    scrollback_lines = 50000
+    cursor_shape = underline
+    use_system_font = False
+    cursor_color = "#3e454e"
+    foreground_color = "#272c30"
+    update_records = False
+    scroll_on_output = False
+    show_titlebar = False
+    color_scheme = custom
+    font = DejaVu Sans Mono 9
+    background_color = "#f7f7f7"
+    scrollback_infinite = True
+  [[yl-dark]]
+    scrollbar_position = hidden
+    palette = "#6f6f6f:#fed8cd:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#3e454e:#b85766:#8ec553:#bbab54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
+    background_image = None
+    background_darkness = 0.84
+    scrollback_lines = 5000
+    cursor_shape = underline
+    use_system_font = False
+    cursor_color = "#d9d9d9"
+    foreground_color = "#d9d9d9"
+    scroll_on_output = False
+    show_titlebar = False
+    custom_command = tmux -2
+    color_scheme = custom
+    font = DejaVu Sans Mono 9
+    background_color = "#1d1f21"
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+      command = ""
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[work]]
+    [[[child0]]]
+      position = 0:55
+      type = Window
+      order = 0
+      parent = ""
+      size = 2560, 1487
+    [[[child1]]]
+      labels = None, None, None, None, None
+      type = Notebook
+      order = 0
+      parent = child0
+    [[[terminal3]]]
+      profile = yl-dark
+      command = source ~/.xprofile; cd $NOYO; zsh
+      type = Terminal
+      order = 1
+      parent = child1
+    [[[terminal2]]]
+      profile = yl-dark
+      command = source ~/.xprofile; cd $COMMON; zsh
+      type = Terminal
+      order = 0
+      parent = child1
+    [[[terminal5]]]
+      profile = yl-dark
+      command = source ~/.xprofile; cd $MTPL; zsh
+      type = Terminal
+      order = 3
+      parent = child1
+    [[[terminal4]]]
+      profile = yl-dark
+      command = source ~/.xprofile; cd $TEST_COMMON; zsh
+      type = Terminal
+      order = 2
+      parent = child1
+    [[[terminal6]]]
+      profile = yl-dark
+      command = source ~/.xprofile; cd $MPLACES; zsh
+      type = Terminal
+      order = 4
+      parent = child1
+[plugins]

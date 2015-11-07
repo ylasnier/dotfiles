@@ -1,0 +1,14 @@
+[user]
+	username = yves
+	email = yves.lasnier@ansamb.com
+[hub]
+  host = github.ansamb.com
+  protocol = http
+  username = yves
+  urltype = ssh_url
+  baseurl = http://github.ansamb.com
+[alias]
+	lg = log --color --graph --pretty=format:'%C(bold red)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+	pager = less -+$LESS -RS
+

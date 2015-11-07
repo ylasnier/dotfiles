@@ -1,0 +1,203 @@
+set nocompatible
+set ts=2 sw=2 sts=2 expandtab "for tab key : use spaces, no tabs
+set nu
+set title
+set mouse=a
+set hidden  "allow change buffer without save
+set confirm "ask to save the current unsaved file
+set showcmd "show cmd being typing"
+set report=0 "number of substitutions done with :s, instead of number of lines
+set showmatch matchtime=2 "when close a bracket, show where it was opened
+set ruler
+
+"easy window clipboard sharing
+if has("unix")
+  if system('uname -s')=~'Darwin'
+    set clipboard=autoselect,unnamed
+  else
+    set clipboard=autoselect,unnamedplus
+  endif
+endif
+
+"colors
+syntax on
+set background=light
+set t_Co=256 "color 256
+hi LineNr ctermfg=darkgrey
+hi NonText ctermfg=darkgrey
+
+"store .swp in a tmp dir
+silent! call mkdir(expand("~")."/.vim/tmp", "p") "create the tmp directory
+set directory=~/.vim/tmp
+
+"scroll
+set scrolloff=2 " number of screen lines to keep above and below the cursor
+set sidescrolloff=2 " same for columns
+
+"last column is 80
+"set colorcolumn=81
+"set textwidth=81 "a longer line will be broken after white space
+"set linebreak "wrap long lines at characters in break rather than only width
+
+"detect filetype
+filetype off
+filetype plugin on
+"filetype indent on
+
+"encoding
+set ffs=unix,dos,mac "support EOL foreach system
+set fileencodings=utf-8,latin1 "the encoding of the file
+set encoding=utf-8
+
+"search
+set ignorecase
+set smartcase
+set magic "dunno
+
+"printing
+"set printoptions=paper:a4 " set the paper size
+"set printdevice=HP_psc_1300_series_USB_MY48GD80F29F_HPLIP
+"set printoptions+=syntax:y "do syntax highlighting when printing
+
+"matching unwanted whitespaces (show non-breakable or trailing spaces)
+highlight UnwantedSpace ctermbg=red guibg=red
+match UnwantedSpace /\s\+$\| /
+au BufWinEnter * match UnwantedSpace /\s\+$\| /
+au InsertEnter * match UnwantedSpace /\s\+\%#\@<!$\| /
+au InsertLeave * match UnwantedSpace /\s\+$\| /
+au BufWinLeave * call clearmatches()
+
+"alternate
+let g:alternateNoDefaultAlternate = 1 "don't create the file
+let g:alternateSearchPath='reg:#source#include/tbr##,reg:#source#include/gltb##,sfr:../../source'
+
+"abbreviations
+iabbrev println System.out.println
+
+"emacs bidings in command mode
+cnoremap <C-a>  <Home>
+cnoremap <C-b>  <Left>
+cnoremap <C-f>  <Right>
+cnoremap <C-d>  <Delete>
+cnoremap <M-b>  <S-Left>
+cnoremap <M-f>  <S-Right>
+cnoremap <M-d>  <S-right><Delete>
+cnoremap <M-BS> <S-left><Delete>
+cnoremap <Esc><BS> <S-left><Delete>
+cnoremap <C-g>  <C-c>
+
+"filename completion
+set wildmenu
+set wildmode=longest,list
+
+"wildignore
+set wildignore+=*.o,*.dll,*.obj,*.exe,*.pyc,*.a,*.class,*.mo,*.la,*.so,*.obj
+set wildignore+=*.beam
+set wildignore+=*~,*.bak
+set wildignore+=*.jpg,*.gif,*.png,*.xpm
+"set wildignore+=*.swp
+set wildignore+=.svn,CVS,.git
+set wildignore+=doc*,build*,cmake,resources
+set wildignore+=*SUITE_data/
+set wildignore+=.DS_Store
+
+"autosource vimrc
+au! BufWritePost .vimrc source %
+
+"could be usefull some day
+set backspace=2 "allow to backspace indent,eol,start
+"set lazyredraw "usefull for macros
+"set autochdir
+
+" split window navigation
+nnoremap <A-Left> <C-W><C-H>
+nnoremap <A-Right> <C-W><C-L>
+nnoremap <A-Down> <C-W><C-J>
+nnoremap <A-Up> <C-W><C-K>
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-obsession'
+"Plugin 'dhruvasagar/vim-prosession'
+Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-session'
+"Plugin 'xolox/vim-easytags'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'EinfachToll/DidYouMean.git'
+Plugin 'matze/vim-move'
+Plugin 'maxbrunsfeld/vim-yankstack'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'junegunn/limelight.vim.git'
+Plugin 'junegunn/goyo.vim'
+"Plugin 'roman/golden-ratio'
+Plugin 'godlygeek/tabular.git'
+Plugin 'fatih/vim-go'
+
+Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_enabled = 1
+let g:gitgutter_max_signs = 1000
+
+"Plugin 'szw/vim-ctrlspace'
+"set showtabline=0
+"Plugin 'wincent/Command-T'
+"Plugin 'kien/ctrlp'
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+Plugin 'scrooloose/nerdtree'
+"Plugin 'jistr/vim-nerdtree-tabs'
+"let g:nerdtree_tabs_open_on_gui_startup = 0
+map <A-n> :NERDTreeToggle<CR>
+
+Plugin 'suan/vim-instant-markdown'
+let g:instant_markdown_autostart = 0
+
+"Plugin 'itchyny/lightline.vim'
+"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"let g:Powerline_symbols = 'fancy'
+"set laststatus=0
+"Plugin 'Yggdroot/indentLine'
+"let g:indentLine_char = '︙'
+"let g:indentLine_leadingSpaceEnabled = 1
+
+"Plugin 'scrooloose/syntastic'
+"let b:syntastic_checkers=['syntaxerl']
+
+"erlang support
+Plugin 'jimenezrick/vimerl'
+"plist support for osx config giles
+Plugin 'darfink/vim-plist'
+"ansible support
+Plugin 'chase/vim-ansible-yaml'
+"coffee color syntax (uses vim-coffee-script)
+Plugin 'kchmck/vim-coffee-script'
+au BufNewFile,BufRead *.coffee set filetype=coffee
+"shell color syntax forced to zsh color syntax
+au BufNewFile,BufRead *.sh set syntax=zsh
+"amt color syntax forced to erlang color syntax
+au BufNewFile,BufRead *.amt set syntax=erlang
+"markdown color syntax
+au BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufRead,BufEnter *.md syn match markdownIgnore "_"
+"erlang indent size and type
+au BufNewFile,BufRead *.erl set ts=4 sw=4 sts=4 expandtab
+au BufNewFile,BufRead *.hrl set ts=4 sw=4 sts=4 expandtab
+"remove trailing spaces when leave a buffer
+"au FileType c,h,cpp,sh,erl,hrl au BufWritePre <buffer> :%s/\s\+$//e
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+

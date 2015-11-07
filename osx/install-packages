@@ -1,0 +1,67 @@
+#!/bin/bash
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install caskroom/cask/brew-cask
+brew cask update
+
+#shell
+brew install zsh
+brew cask install iterm2
+
+#text editor
+#brew install vim
+brew install macvim --override-system-vim
+brew linkapps macvim
+
+#gpg
+brew install gpg2
+brew cask install gpgtools
+
+#network
+brew install curl
+brew install wget
+brew cask install tunnelblick
+brew cask install opera
+#brew cask install thunderbird
+brew cask install adium
+brew cask install skype
+brew cask install dropbox
+brew cask install utorrent
+
+#dev
+brew install git
+brew install golang
+brew install cmake
+brew install ctags
+brew install node
+brew cask install nwjs
+sudo easy_install pip
+
+#virtualization
+brew install ansible
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install vagrant-manager
+
+#draw
+brew cask install gimp
+brew cask install xquartz
+brew cask install inkscape
+
+#media
+brew cask install vlc
+
+#tools
+brew install coreutils
+brew-cask install osxfuse
+brew install ext4fuse
+brew install ntfs-3g
+brew install htop-osx
+sudo pip install glances
+brew cask install razer-synapse
+
+#office
+brew cask install libreoffice
+brew cask install mactex
+

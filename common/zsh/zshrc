@@ -1,0 +1,151 @@
+#! /bin/zsh
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+  xterm*|rxvt*)
+    precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+    ;;
+  *)
+    ;;
+esac
+
+#--------
+# History
+#--------
+
+# history file
+export HISTFILE=$HOME/.history
+
+# number of entries in history
+export HISTORY=10000
+export SAVEHIST=10000
+
+# directly add line in history
+setopt inc_append_history
+
+# share history between all sessions
+#setopt share_history extended_history
+
+# if a line has been entered more than once, keep only the last occurrence
+setopt hist_ignore_all_dups
+
+# make search up and down work, so partially type and hit up/down
+# to find  relevant stuff
+autoload -U up-line-or-search
+autoload -U down-line-or-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey 'OA' up-line-or-search
+bindkey 'OB' down-line-or-search
+bindkey '[A' up-line-or-search
+bindkey '[B' down-line-or-search
+
+#-------
+# Prompt
+#-------
+
+autoload -U colors
+colors
+
+unsetopt PROMPT_SP
+
+function prompt_char {
+  git branch >/dev/null 2>/dev/null && echo '☿' && return
+  hg root >/dev/null 2>/dev/null && echo 'λ' && return
+  echo '○'
+}
+
+source $HOME/.zsh/zsh-git-prompt/zshrc.sh
+
+PROMPT="%F{cyan}%n%f%F{red}@%m %f%F{red}%~%f"'$(git_super_status)'"
+%T"' $(prompt_char) '"%f%b"
+
+#this version uses a different color (blue) for privileged user
+#PROMPT="%(!.%F{blue}.%F{cyan})%n%f%F{red}@%m %f%F{red}%~%f"'$(git_super_status)'"
+#%T"' $(prompt_char) '"%f%b"
+
+#if [ $UID -eq 0 ] ; then
+##color commands in red for root
+#source /etc/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
+#else
+##color commands in green for non-root
+#source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
+
+#fi
+
+RPROMPT=""
+
+# custom zsh-git-prompt
+ZSH_THEME_GIT_PROMPT_PREFIX=" "
+ZSH_THEME_GIT_PROMPT_SUFFIX=" "
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}%{●%G%}"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg_bold[red]%}%{✖%G%}"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[black]%}%{ ✚%G%}"
+ZSH_THEME_GIT_PROMPT_BEHIND="%{ ↓%G%}"
+ZSH_THEME_GIT_PROMPT_AHEAD="%{ ↑%G%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[black]%}%{ …%G%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}%{✔%G%}"
+
+autoload -U promptinit
+promptinit
+
+
+#------------
+# Misc configs
+#------------
+
+# vi-mode
+#set -o vi
+
+# emacs-bind
+bindkey -e
+
+# propose a correction if a typo error is detected
+setopt nocorrectall
+setopt correct
+
+#-------------------------------
+# Aliases, environment variables
+#-------------------------------
+
+# os specific
+if [ -f ~/.zprofile ]; then
+  source ~/.zprofile
+fi
+
+if [ -f ~/.xprofile ]; then
+  source ~/.xprofile
+fi
+
+# path
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# commands
+alias df="df -h"
+alias du="du -hs"
+alias etchosts="sudo vim /etc/hosts"
+alias :e="vim"
+alias ll='ls -alh'
+
+#-----------
+# Completion
+#-----------
+
+autoload -Uz compinit
+compinit
+
+#zstyle ':completion:*' auto-description 'specify: %d'
+#zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate _prefix
+#zstyle ':completion:*' format 'Completing %d'
+#zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
