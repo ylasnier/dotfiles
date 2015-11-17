@@ -1,4 +1,5 @@
 #!/bin/bash
+ARC_THEME=$DOTFILES/linux/gtk/themes/arc
 
 aptitude update
 
@@ -60,4 +61,16 @@ aptitude install -y steam
 #misc
 aptitude install -y gparted
 aptitude install -y unzip
+
+#theme
+if [ ! -d $ARC_THEME]; then
+  cd $ARC_THEME
+  GNOME_VERSION_MAJOR=`gnome-shell --version | awk '{print $3}' | cut -d. -f1`
+  GNOME_VERSION_MINOR=`gnome-shell --version | awk '{print $3}' | cut -d. -f2`
+  ./autogen.sh --prefix=/usr --with-gnome=$GNOME_VERSION_MAJOR.$GNOME_VERSION_MINOR
+  make install
+  cd -
+else
+  echo "$ARC_THEME does not exist. Skipped Arc GTK theme installation."
+fi
 

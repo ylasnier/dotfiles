@@ -7,8 +7,8 @@
 - link:
     ~/.zprofile: linux/zsh/zprofile
     ~/.xprofile: workstation/zshenv
-    ~/.gtkrc-2.0: linux/gtkrc-2.0
-    ~/.config/gtk-3.0/gtk.css: linux/gtk-3.0/gtk.css
+    ~/.gtkrc-2.0: linux/gtk/gtkrc-2.0
+    ~/.config/gtk-3.0/gtk.css: linux/gtk/gtk-3.0/gtk.css
     ~/.config/dconf/user: linux/dconf/user
     ~/.config/user-dirs.dirs: linux/user-dirs.dirs
     ~/.config/terminator/config: linux/terminator/config

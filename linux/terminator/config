@@ -1,9 +1,9 @@
 [global_config]
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  title_transmit_bg_color = "#000000"
+  title_transmit_bg_color = "#404552"
   handle_size = 1
   inactive_color_offset = 1.0
-  title_inactive_bg_color = "#000000"
+  title_inactive_bg_color = "#383c4a"
 [keybindings]
   search = <Primary>f
   group_tab = None
@@ -41,7 +41,7 @@
     scrollbar_position = hidden
     palette = "#6f6f6f:#fed8cd:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#3e454e:#b85766:#8ec553:#bbab54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
     background_image = None
-    background_darkness = 0.84
+    background_darkness = 0.87
     scrollback_lines = 5000
     cursor_shape = underline
     use_system_font = False
@@ -52,7 +52,7 @@
     custom_command = tmux -2
     color_scheme = custom
     font = DejaVu Sans Mono 9
-    background_color = "#1d1f21"
+    background_color = "#2f343f"
     scrollback_infinite = True
 [layouts]
   [[default]]
