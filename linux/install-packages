@@ -61,6 +61,11 @@ aptitude install -y steam
 #misc
 aptitude install -y gparted
 aptitude install -y unzip
+aptitude install -y conky
+
+#fonts
+aptitude install -y fonts-dejavu
+aptitude install -y fonts-droid
 
 #theme
 if [ ! -d $ARC_THEME]; then

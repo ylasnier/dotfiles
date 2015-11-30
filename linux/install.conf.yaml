@@ -8,11 +8,14 @@
     ~/.zprofile: linux/zsh/zprofile
     ~/.xprofile: workstation/zshenv
     ~/.gtkrc-2.0: linux/gtk/gtkrc-2.0
+    ~/.conkyrc: linux/conky/conkyrc
+    ~/.config/autostart/conky.desktop: linux/conky/conky-autostart.desktop
     ~/.config/gtk-3.0/gtk.css: linux/gtk/gtk-3.0/gtk.css
     ~/.config/dconf/user: linux/dconf/user
     ~/.config/user-dirs.dirs: linux/user-dirs.dirs
     ~/.config/terminator/config: linux/terminator/config
     ~/images/Wallpapers: $HOME/Dropbox/Apps/Desktoppr
+    ~/.local/share/fonts: common/fonts
     ~/.bin/enable-hidpi-scale:  linux/bin/enable-gtk-hidpi-scale.sh
     ~/.bin/disable-hidpi-scale: linux/bin/disable-gtk-hidpi-scale.sh
 

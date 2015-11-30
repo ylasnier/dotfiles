@@ -1,0 +1,41 @@
+conky.config = {
+    alignment = 'top_right',
+    background = false,
+    border_width = 100,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Sweetly Broken:size=22',
+    gap_x = 240,
+    gap_y = 240,
+    minimum_height = 5,
+    minimum_width = 5,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    stippled_borders = 0,
+    update_interval = 1,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false
+}
+
+conky.text = [[
+  ${if_match "${exec rhythmbox-client --print-playing-format %tt --no-start}" != ""}
+  ${font Sweetly Broken:size=22} ${exec rhythmbox-client --print-playing-format=%aa --no-start}
+  ${if_match "${exec `rhythmbox-client --print-playing-format %tt --no-start | head -n 1 | wc -c`}" >= "45"}${font Sweetly Broken:size=22}${else}${font Sweetly Broken:size=44}${endif}${exec rhythmbox-client --print-playing-format %tt --no-start}
+  ${endif}
+]]
+
