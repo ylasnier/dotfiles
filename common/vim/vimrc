@@ -116,73 +116,87 @@ nnoremap <A-Down> <C-W><C-J>
 nnoremap <A-Up> <C-W><C-K>
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'rking/ag.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-obsession'
-"Plugin 'dhruvasagar/vim-prosession'
-Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-session'
-"Plugin 'xolox/vim-easytags'
-Plugin 'Raimondi/delimitMate'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'EinfachToll/DidYouMean.git'
-Plugin 'matze/vim-move'
-Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'junegunn/limelight.vim.git'
-Plugin 'junegunn/goyo.vim'
-"Plugin 'roman/golden-ratio'
-Plugin 'godlygeek/tabular.git'
-Plugin 'fatih/vim-go'
+Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
+"Plug 'dhruvasagar/vim-prosession'
+Plug 'xolox/vim-misc'
+"Plug 'xolox/vim-session'
+"Plug 'xolox/vim-easytags'
+Plug 'Raimondi/delimitMate'
 
-Plugin 'airblade/vim-gitgutter'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+"function! BuildYCM(info)
+"  if a:info.status == 'installed' || a:info.force
+"    !./install.py --clang-completer
+"  endif
+"endfunction
+
+Plug 'tomtom/tcomment_vim'
+Plug 'chriskempson/base16-vim'
+Plug 'EinfachToll/DidYouMean'
+Plug 'matze/vim-move'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+"Plug 'roman/golden-ratio'
+Plug 'godlygeek/tabular'
+Plug 'fatih/vim-go'
+
+Plug 'airblade/vim-gitgutter'
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_enabled = 1
 let g:gitgutter_max_signs = 1000
 
-"Plugin 'szw/vim-ctrlspace'
+"Plug 'szw/vim-ctrlspace'
 "set showtabline=0
-"Plugin 'wincent/Command-T'
-"Plugin 'kien/ctrlp'
+"Plug 'wincent/Command-T'
+"Plug 'kien/ctrlp'
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-Plugin 'scrooloose/nerdtree'
-"Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'jistr/vim-nerdtree-tabs'
 "let g:nerdtree_tabs_open_on_gui_startup = 0
 map <A-n> :NERDTreeToggle<CR>
 
-Plugin 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0
 
-"Plugin 'itchyny/lightline.vim'
-"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plug 'itchyny/lightline.vim'
+"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 "let g:Powerline_symbols = 'fancy'
 "set laststatus=0
-"Plugin 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 "let g:indentLine_char = '︙'
 "let g:indentLine_leadingSpaceEnabled = 1
 
-"Plugin 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 "let b:syntastic_checkers=['syntaxerl']
 
 "erlang support
-Plugin 'jimenezrick/vimerl'
-"plist support for osx config giles
-Plugin 'darfink/vim-plist'
+Plug 'jimenezrick/vimerl'
+"Plug 'vim-erlang/vim-erlang-runtime'
+"Plug 'vim-erlang/vim-rebar'
+"Plug 'vim-erlang/vim-erlang-compiler'
+"Plug 'vim-erlang/vim-erlang-omnicomplete'
+"Plug 'vim-erlang/vim-iawriter'
+"Plug 'vim-erlang/vim-erlang-skeletons'
+"Plug 'vim-erlang/vim-erlang-tags'
+"Plug 'vim-erlang/erlang-motions.vim'
+"plist support for osx config files
+Plug 'darfink/vim-plist'
 "ansible support
-Plugin 'chase/vim-ansible-yaml'
+Plug 'chase/vim-ansible-yaml'
 "coffee color syntax (uses vim-coffee-script)
-Plugin 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 au BufNewFile,BufRead *.coffee set filetype=coffee
 "shell color syntax forced to zsh color syntax
 au BufNewFile,BufRead *.sh set syntax=zsh
@@ -198,6 +212,5 @@ au BufNewFile,BufRead *.hrl set ts=4 sw=4 sts=4 expandtab
 "au FileType c,h,cpp,sh,erl,hrl au BufWritePre <buffer> :%s/\s\+$//e
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 

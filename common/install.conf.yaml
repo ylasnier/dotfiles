@@ -1,6 +1,7 @@
 - shell:
     - [mkdir -p ~/.vim/tmp, Ensure .vim/tmp directory exists]
-    - [mkdir -p ~/.vim/bundle, Ensure .vim/bundle directory exists]
+    - [mkdir -p ~/.vim/autoload, Ensure .vim/autoload directory exists]
+    - [mkdir -p ~/.vim/plugged, Ensure .vim/plugged directory exists]
     - [mkdir -p ~/.zsh, Ensure .zsh directory exists]
 
 - link:
@@ -11,7 +12,6 @@
     ~/.vimrc:      common/vim/vimrc
     ~/.gvimrc:     common/vim/gvimrc
     ~/.vim/colors: common/vim/colors
-    ~/.vim/bundle/Vundle.vim: common/vim/bundle/Vundle.vim
     #zsh
     ~/.zsh:
       path: common/zsh/zsh
@@ -25,7 +25,7 @@
 
 - shell :
     - [chsh -s /bin/zsh, Set zsh as login shell]
-    - [vim +PluginInstall +qal, Install vim bundles]
-    - [~/.vim/bundle/YouCompleteMe/install.py  --clang-completer, Compile YouCompleteMe]
+    - [curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim, Install vim-plug]
+    - [vim +PlugInstall +qal, Install vim plugins]
     #- [curl "https://raw.githubusercontent.com/Tarrasch/zsh-bd/master/bd.zsh" > ~/zsh/zsh.bd, Install zsh.bd]
 

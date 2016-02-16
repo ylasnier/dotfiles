@@ -1,11 +1,11 @@
 #!/bin/zsh
 # zsh aliases and env var for osx
 
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 if [ -f ~/.zshenv ]; then
     source ~/.zshenv
 fi
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 #-------
 # finder

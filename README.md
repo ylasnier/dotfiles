@@ -26,14 +26,14 @@ Debian, user has to be `root`or a `sudoer`.
 
 The entire process can be done automatically with :
 
-```
+```bash
 curl https://raw.githubusercontent.com/ylasnier/dotfiles/master/bootstrap.sh | sh
 ```
 
 In this way, the repository will be cloned in the $HOME/.dotfiles directory.
 You can also specify a destination in argument :
 
-```
+```bash
 curl https://raw.githubusercontent.com/ylasnier/dotfiles/master/bootstrap.sh | sh -s /your/dest/path
 ```
 
@@ -44,14 +44,14 @@ links to each dotfiles will be created in the home directory.
 
 #### Clone the repository
 
-```
+```bash
 git clone --recursive http://github.ansamb.com/yves/dotfiles.git
 cd dotfiles
 ```
 
 #### Links
 
-```
+```bash
 ./install -c linux/install.conf.yaml  # or osx/install.conf.yaml
 ./install -c common/install.conf.yaml
 ```
@@ -60,14 +60,14 @@ cd dotfiles
 
 ##### Debian
 
-```
+```bash
 sudo ./linux/install-packages
 ./common/install-packages
 ```
 
 ##### OS X
 
-```
+```bash
 ./osx/install-packages
 ./common/install-packages
 ```
@@ -112,3 +112,4 @@ See [LICENSE.md][license] for details.
 [linux-packages]: linux/install-packages
 [osx-packages]: osx/install-packages
 [license]: LICENSE.md
+
