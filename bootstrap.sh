@@ -30,5 +30,8 @@ esac
 ./common/install-packages
 ./install -c common/install.conf.yaml
 
-./install -c workstation/install.conf.yaml
+if [ -d workstation ]; then
+  ./workstation/install-packages
+  ./install -c workstation/install.conf.yaml
+fi
 
