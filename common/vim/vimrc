@@ -11,13 +11,7 @@ set showmatch matchtime=2 "when close a bracket, show where it was opened
 set ruler
 
 "easy window clipboard sharing
-if has("unix")
-  if system('uname -s')=~'Darwin'
-    set clipboard=autoselect,unnamed
-  else
-    set clipboard=autoselect,unnamedplus
-  endif
-endif
+set clipboard=autoselect,unnamedplus
 
 "colors
 syntax on
@@ -72,7 +66,11 @@ let g:alternateNoDefaultAlternate = 1 "don't create the file
 let g:alternateSearchPath='reg:#source#include/tbr##,reg:#source#include/gltb##,sfr:../../source'
 
 "abbreviations
-iabbrev println System.out.println
+iabbrev print io:format("~p ~n", [])
+iabbrev prinfo ?PRINT_INFO("[] ~p", [log_format__([])])
+iabbrev prdebug ?PRINT_DEBUG("[] ~p", [log_format__([])])
+iabbrev prwarn ?PRINT_WARNING("[] ~p", [log_format__([])])
+iabbrev prerr ?PRINT_ERROR("[] ~p", [log_format__([])])
 
 "emacs bidings in command mode
 cnoremap <C-a>  <Home>
@@ -108,6 +106,9 @@ au! BufWritePost .vimrc source %
 set backspace=2 "allow to backspace indent,eol,start
 "set lazyredraw "usefull for macros
 "set autochdir
+
+" force to save with sudoer privileges
+cnoremap w!! w !sudo tee > /dev/null %
 
 " split window navigation
 nnoremap <A-Left> <C-W><C-H>

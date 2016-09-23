@@ -26,6 +26,7 @@ aptitude install -y deluge
 aptitude install -y vim
 aptitude install -y vim-gnome
 aptitude install -y texlive
+aptitude install -u texlive-latex-extra
 
 #monitoring
 aptitude install -y htop

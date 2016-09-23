@@ -60,8 +60,8 @@ function prompt_char {
 
 source $HOME/.zsh/zsh-git-prompt/zshrc.sh
 
-PROMPT="%F{cyan}%n%f%F{red}@%m %f%F{red}%~%f"'$(git_super_status)'"
-%T"' $(prompt_char) '"%f%b"
+PROMPT="%F{cyan}%n%f%F{red}@%m %f%F{red}%2~%f"'$(git_super_status)'" "
+#%T"' $(prompt_char) '"%f%b"
 
 #this version uses a different color (blue) for privileged user
 #PROMPT="%(!.%F{blue}.%F{cyan})%n%f%F{red}@%m %f%F{red}%~%f"'$(git_super_status)'"
@@ -82,12 +82,12 @@ RPROMPT=""
 
 # custom zsh-git-prompt
 ZSH_THEME_GIT_PROMPT_PREFIX=" "
-ZSH_THEME_GIT_PROMPT_SUFFIX=" "
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}%{●%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg_bold[red]%}%{✖%G%}"
-ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[black]%}%{ ✚%G%}"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[black]%}%{✚%G%}"
 ZSH_THEME_GIT_PROMPT_BEHIND="%{ ↓%G%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{ ↑%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[black]%}%{ …%G%}"
@@ -134,6 +134,7 @@ alias df="df -h"
 alias du="du -hs"
 alias etchosts="sudo vim /etc/hosts"
 alias :e="vim"
+alias :q="exit"
 alias ll='ls -alh'
 
 #-----------
@@ -149,3 +150,5 @@ compinit
 #zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
