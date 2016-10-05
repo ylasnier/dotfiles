@@ -116,7 +116,7 @@ nnoremap <A-Right> <C-W><C-L>
 nnoremap <A-Down> <C-W><C-J>
 nnoremap <A-Up> <C-W><C-K>
 
-" set the runtime path to include Vundle and initialize
+" set the runtime path to include vim-plug and initialize
 call plug#begin('~/.vim/plugged')
 
 Plug 'rking/ag.vim'
