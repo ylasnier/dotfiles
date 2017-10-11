@@ -1,4 +1,5 @@
 [global_config]
+  dbus = False
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   handle_size = 1
   inactive_color_offset = 1.0
@@ -75,7 +76,6 @@
 [profiles]
   [[default]]
     background_color = "#f7f7f7"
-    background_image = None
     color_scheme = custom
     cursor_color = "#3e454e"
     cursor_shape = underline
@@ -83,17 +83,14 @@
     font = DejaVu Sans Mono 9
     foreground_color = "#272c30"
     palette = "#272c30:#e9aa9a:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#3e454e:#b85766:#8ec553:#bbab54:#6ea1d9:#ad7fa8:#2aa198:#cccccc"
-    scroll_on_output = False
     scrollback_infinite = True
     scrollback_lines = 50000
     scrollbar_position = hidden
     show_titlebar = False
-    update_records = False
     use_system_font = False
   [[yl-dark]]
     background_color = "#2f343f"
     background_darkness = 0.87
-    background_image = None
     color_scheme = custom
     cursor_color = "#d9d9d9"
     cursor_shape = underline
@@ -101,7 +98,6 @@
     font = DejaVu Sans Mono 9
     foreground_color = "#d9d9d9"
     palette = "#6f6f6f:#fed8cd:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#3e454e:#b85766:#8ec553:#b2bb54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
-    scroll_on_output = False
     scrollback_infinite = True
     scrollback_lines = 5000
     scrollbar_position = hidden
