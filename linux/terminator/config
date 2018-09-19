@@ -2,7 +2,7 @@
   dbus = False
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   handle_size = 1
-  inactive_color_offset = 1.0
+  inactive_color_offset = 0.9
   title_inactive_bg_color = "#383c4a"
   title_transmit_bg_color = "#404552"
 [keybindings]

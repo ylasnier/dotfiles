@@ -66,7 +66,7 @@ let g:alternateNoDefaultAlternate = 1 "don't create the file
 let g:alternateSearchPath='reg:#source#include/tbr##,reg:#source#include/gltb##,sfr:../../source'
 
 "abbreviations
-iabbrev print io:format("~p ~n", [])
+"iabbrev print io:format("~p ~n", [])
 iabbrev prinfo ?PRINT_INFO("[] ~p", [log_format__([])])
 iabbrev prdebug ?PRINT_DEBUG("[] ~p", [log_format__([])])
 iabbrev prwarn ?PRINT_WARNING("[] ~p", [log_format__([])])
