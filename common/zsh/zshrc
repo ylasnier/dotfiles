@@ -50,7 +50,9 @@ bindkey '[B' down-line-or-search
 autoload -U colors
 colors
 
-unsetopt PROMPT_SP
+#Did it because of a trailing %, but sometimes it causes the disparition of the
+#last line after executing a command, e.g. curl response body
+#unsetopt PROMPT_SP
 
 function prompt_char {
   git branch >/dev/null 2>/dev/null && echo '☿' && return
@@ -151,4 +153,15 @@ compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#---------------------
+# node version manager
+#---------------------
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#nvm use --delete-prefix v6.14.4
+#nvm use --delete-prefix v4.6.2 --silent
 
