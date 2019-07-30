@@ -20,6 +20,7 @@ esac
 export HISTFILE=$HOME/.history
 
 # number of entries in history
+export HISTSIZE=1000
 export HISTORY=10000
 export SAVEHIST=10000
 
@@ -60,9 +61,10 @@ function prompt_char {
   echo '○'
 }
 
-source $HOME/.zsh/zsh-git-prompt/zshrc.sh
+#source $HOME/.zsh/zsh-git-prompt/zshrc.sh
 
-PROMPT="%F{cyan}%n%f%F{red}@%m %f%F{red}%2~%f"'$(git_super_status)'" "
+PROMPT="%F{cyan}%n%f%F{red}@%m %f%F{red}%2~%f "
+#PROMPT="%F{cyan}%n%f%F{red}@%m %f%F{red}%2~%f"'$(git_super_status)'" "
 #%T"' $(prompt_char) '"%f%b"
 
 #this version uses a different color (blue) for privileged user
@@ -161,7 +163,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+#
 #nvm use --delete-prefix v6.14.4
 #nvm use --delete-prefix v4.6.2 --silent
 
