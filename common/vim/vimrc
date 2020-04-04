@@ -179,8 +179,9 @@ let g:instant_markdown_autostart = 0
 "let g:indentLine_char = '︙'
 "let g:indentLine_leadingSpaceEnabled = 1
 
-"Plug 'scrooloose/syntastic'
+"Plug 'vim-syntastic/syntastic'
 "let b:syntastic_checkers=['syntaxerl']
+"let b:syntastic_checkers=['syntaxc']
 
 "erlang support
 Plug 'jimenezrick/vimerl'

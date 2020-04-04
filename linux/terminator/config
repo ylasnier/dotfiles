@@ -97,7 +97,7 @@
     custom_command = tmux -2
     font = DejaVu Sans Mono 9
     foreground_color = "#d9d9d9"
-    palette = "#6f6f6f:#fed8cd:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#3e454e:#b85766:#8ec553:#b2bb54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
+    palette = "#555753:#fed8cd:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#eeeeec:#b85766:#8ec553:#b2bb54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
     scrollback_infinite = True
     scrollback_lines = 5000
     scrollbar_position = hidden
