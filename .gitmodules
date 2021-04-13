@@ -6,7 +6,7 @@
 	url = https://github.com/olivierverdier/zsh-git-prompt.git
 [submodule "workstation"]
 	path = workstation
-	url = git@github.ansamb.com:yves/dotfiles.git
+	url = git@gitlab.ansamb.com:yves/dotfiles.git
 [submodule "linux/gtk/themes/arc"]
 	path = linux/gtk/themes/arc
 	url = https://github.com/horst3180/Arc-theme.git

@@ -1,82 +1,79 @@
 #!/bin/bash
 ARC_THEME=$DOTFILES/linux/gtk/themes/arc
 
-aptitude update
+apt update
 
 #settings
-aptitude install -y gnupg
-aptitude install -y gnome-tweak-tool
-aptitude install -y laptop-mode-tools
+apt install -y gnupg
+apt install -y gnome-tweak-tool
+#apt install -y laptop-mode-tools
 
 #shell
-aptitude install -y zsh
-aptitude install -y terminator
+apt install -y zsh
+apt install -y terminator
 
 #network
-aptitude install -y curl
-aptitude install -y wget
-aptitude install -y opera
-aptitude install -y icedove
-aptitude install -y enigmail
-wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.02.12_amd64.deb /tmp
+apt install -y curl
+apt install -y wget
+#apt install -y thunderbird
+wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2020.03.04_amd64.deb -O /tmp/dropbox_2020.03.04_amd64.deb
 dpkg -i /tmp/dropbox*.deb
-aptitude install -y deluge
+#apt install -y deluge
 
 #text
-aptitude install -y vim
-aptitude install -y vim-gnome
-aptitude install -y texlive
-aptitude install -u texlive-latex-extra
+apt install -y vim
+apt install -y vim-gui-common
+apt install -y texlive
+apt install -u texlive-latex-extra
 
 #monitoring
-aptitude install -y htop
-aptitude install -y glances
+apt install -y htop
+apt install -y glances
 
 #dev
-aptitude install -y build-essential
-aptitude install -y cmake
-aptitude install -y go
-aptitude install -y exuberant-ctags
-wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb /tmp
+apt install -y build-essential
+apt install -y cmake
+apt install -y golang-go
+apt install -y exuberant-ctags
+wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb -P /tmp/
 dpkg -i /tmp/erlang-solutions_1.0_all.deb
-aptitude install nodejs
+apt install nodejs
 ln -s /usr/local/bin/node $(which nodejs)
 
 #virtualization
-aptitude install -y ansible
-aptitude install -y vagrant
-aptitude install -y virtualbox
-aptitude install -y virtualbox-dkms
-aptitude install -y qemu-kvm
-aptitude install -y libvirt
-aptitude install -y lxc
+apt install -y ansible
+apt install -y vagrant
+apt install -y qemu-kvm
+apt install -y libvirt-clients
+apt install -y libvirt-daemon-system
+apt install -y lxc
 
 #draw
-#aptitude install -y gimp
-aptitude install -y inkscape
+#apt install -y gimp
+apt install -y inkscape
 
 #media
-aptitude install -y vlc
-aptitude install -y steam
+apt install -y vlc
+#apt install -y steam
 
 #misc
-aptitude install -y gparted
-aptitude install -y unzip
-aptitude install -y conky
+apt install -y gparted
+apt install -y unzip
+#apt install -y conky
 
 #fonts
-aptitude install -y fonts-dejavu
-aptitude install -y fonts-droid
+apt install -y fonts-dejavu
+apt install -y fonts-noto
 
 #theme
-if [ ! -d $ARC_THEME]; then
-  cd $ARC_THEME
-  GNOME_VERSION_MAJOR=`gnome-shell --version | awk '{print $3}' | cut -d. -f1`
-  GNOME_VERSION_MINOR=`gnome-shell --version | awk '{print $3}' | cut -d. -f2`
-  ./autogen.sh --prefix=/usr --with-gnome=$GNOME_VERSION_MAJOR.$GNOME_VERSION_MINOR
-  make install
-  cd -
-else
-  echo "$ARC_THEME does not exist. Skipped Arc GTK theme installation."
-fi
+#if [ ! -d $ARC_THEME]; then
+#  cd $ARC_THEME
+#  GNOME_VERSION_MAJOR=`gnome-shell --version | awk '{print $3}' | cut -d. -f1`
+#  GNOME_VERSION_MINOR=`gnome-shell --version | awk '{print $3}' | cut -d. -f2`
+#  ./autogen.sh --prefix=/usr --with-gnome=$GNOME_VERSION_MAJOR.$GNOME_VERSION_MINOR
+#  make install
+#  cd -
+#else
+#  echo "$ARC_THEME does not exist. Skipped Arc GTK theme installation."
+#fi
 
