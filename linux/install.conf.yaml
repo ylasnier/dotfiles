@@ -3,6 +3,14 @@
 - shell:
     - [mkdir -p ~/.bin, Ensure .bin directory exists]
     - [mkdir -p ~/.config, Ensure .config directory exists]
+    - [mv ~/Bureau ~/bureau, Rename desktop directory]
+    - [mv ~/Téléchargements ~/telechargements, Rename download directory]
+    - [mv ~/Modèles ~/modeles , Rename templates directory]
+    - [mv ~/Public ~/public, Rename publicshare directory]
+    - [mv ~/Documents ~/documents, Rename documents directory]
+    - [mv ~/Musique ~/musique, Rename music directory]
+    - [mv ~/Images ~/images, Rename images directory]
+    - [mv ~/Vidéos ~/videos, Rename videos directory]
 
 - link:
     ~/.zprofile: linux/zsh/zprofile
@@ -16,6 +24,5 @@
     ~/.config/terminator/config: linux/terminator/config
     ~/images/Wallpapers: $HOME/Dropbox/Apps/Desktoppr
     ~/.local/share/fonts: common/fonts
-    ~/.bin/enable-hidpi-scale:  linux/bin/enable-gtk-hidpi-scale.sh
-    ~/.bin/disable-hidpi-scale: linux/bin/disable-gtk-hidpi-scale.sh
+    ~/.bin/hidpi-scale:  linux/bin/gtk-hidpi-scale.sh
 

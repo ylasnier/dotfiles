@@ -32,6 +32,8 @@ apt install -y glances
 
 #dev
 apt install -y build-essential
+apt install -y make
+apt install -y autoconf
 apt install -y cmake
 apt install -y golang-go
 apt install -y exuberant-ctags
