@@ -149,7 +149,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 "Plug 'roman/golden-ratio'
 Plug 'godlygeek/tabular'
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_highlight_lines = 0
@@ -197,6 +197,8 @@ Plug 'jimenezrick/vimerl'
 Plug 'darfink/vim-plist'
 "ansible support
 Plug 'chase/vim-ansible-yaml'
+"plantuml support
+Plug 'aklt/plantuml-syntax'
 "coffee color syntax (uses vim-coffee-script)
 Plug 'kchmck/vim-coffee-script'
 au BufNewFile,BufRead *.coffee set filetype=coffee

@@ -2,9 +2,9 @@
 
 function usage() {
 cat <<EOF
-usage: highdpi-scale [options]
+usage: hidpi-scale [options]
 
-highdpi-scale - Change resolution scale
+hidpi-scale - Change resolution scale
 
 OPTIONS:
 -e, --enable  :   Enable High-DPI scale

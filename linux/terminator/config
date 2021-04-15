@@ -88,16 +88,33 @@
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
+  [[nord]]
+    cursor_color = "#aaaaaa"
   [[yl-dark]]
-    background_color = "#2f343f"
+    background_color = "#2E3440"
+    background_darkness = 0.87
+    color_scheme = custom
+    cursor_color = "#D8DEE9"
+    cursor_shape = underline
+    custom_command = tmux -2
+    font = DejaVu Sans Mono 9
+    foreground_color = "#D8DEE9"
+    palette = "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#8FBCBB:#ECEFF4"
+    scrollback_infinite = True
+    scrollback_lines = 5000
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[yl-darkblue]]
+    background_color = "#0d101e"
     background_darkness = 0.87
     color_scheme = custom
     cursor_color = "#d9d9d9"
     cursor_shape = underline
     custom_command = tmux -2
     font = DejaVu Sans Mono 9
-    foreground_color = "#d9d9d9"
-    palette = "#555753:#fed8cd:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#eeeeec:#b85766:#8ec553:#b2bb54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
+    foreground_color = "#ffffff"
+    palette = "#555753:#ff6600:#75bd80:#edd400:#507191:#9b7495:#80d8d8:#767878:#e6e6e6:#b85766:#8ec553:#b2bb54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
     scrollback_infinite = True
     scrollback_lines = 5000
     scrollbar_position = hidden
