@@ -24,7 +24,8 @@ dpkg -i /tmp/dropbox*.deb
 apt install -y vim
 apt install -y vim-gui-common
 apt install -y texlive
-apt install -u texlive-latex-extra
+apt install -y texlive-latex-extra
+apt install -y texlive-lang-french
 
 #monitoring
 apt install -y htop

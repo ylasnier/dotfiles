@@ -1,25 +1,72 @@
 [global_config]
   dbus = False
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   handle_size = 1
-  inactive_color_offset = 0.9
-  title_inactive_bg_color = "#383c4a"
   title_transmit_bg_color = "#404552"
+  title_inactive_bg_color = "#383c4a"
+  inactive_color_offset = 0.9
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
 [keybindings]
+  new_tab = <Primary>t
+  split_horiz = <Primary><Shift>o
   close_term = <Primary>w
   copy = <Super>c
-  group_tab = None
-  hide_window = <Primary><Shift>a
-  move_tab_left = <Primary><Shift>Left
-  move_tab_right = <Primary><Shift>Right
-  new_tab = <Primary>t
-  new_window = <Primary>n
-  next_tab = <Primary>Right
   paste = <Super>v
-  prev_tab = <Primary>Left
   search = <Primary>f
-  split_horiz = <Primary><Shift>o
+  move_tab_right = <Primary><Shift>Right
+  move_tab_left = <Primary><Shift>Left
+  next_tab = <Primary>Right
+  prev_tab = <Primary>Left
+  hide_window = <Primary><Shift>a
+  group_tab = None
   ungroup_tab = <Super>Down
+  new_window = <Primary>n
+[profiles]
+  [[default]]
+    background_color = "#f7f7f7"
+    color_scheme = custom
+    cursor_shape = underline
+    cursor_color = "#3e454e"
+    font = DejaVu Sans Mono 9
+    foreground_color = "#272c30"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 50000
+    scrollback_infinite = True
+    palette = "#272c30:#e9aa9a:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#3e454e:#b85766:#8ec553:#bbab54:#6ea1d9:#ad7fa8:#2aa198:#cccccc"
+    custom_command = tmux -2
+    use_system_font = False
+  [[nord]]
+    cursor_color = "#aaaaaa"
+  [[yl-dark]]
+    background_color = "#2E3440"
+    background_darkness = 0.87
+    color_scheme = custom
+    cursor_shape = underline
+    cursor_color = "#D8DEE9"
+    font = DejaVu Sans Mono 9
+    foreground_color = "#D8DEE9"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 5000
+    scrollback_infinite = True
+    palette = "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#8FBCBB:#ECEFF4"
+    custom_command = tmux -2
+    use_system_font = False
+  [[yl-darkblue]]
+    background_color = "#0d101e"
+    background_darkness = 0.87
+    color_scheme = custom
+    cursor_shape = underline
+    cursor_color = "#d9d9d9"
+    font = DejaVu Sans Mono 9
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 5000
+    scrollback_infinite = True
+    palette = "#555753:#ff6600:#75bd80:#edd400:#507191:#9b7495:#80d8d8:#767878:#e6e6e6:#b85766:#8ec553:#b2bb54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
+    custom_command = tmux -2
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -73,50 +120,3 @@
       profile = yl-dark
       type = Terminal
 [plugins]
-[profiles]
-  [[default]]
-    background_color = "#f7f7f7"
-    color_scheme = custom
-    cursor_color = "#3e454e"
-    cursor_shape = underline
-    custom_command = tmux -2
-    font = DejaVu Sans Mono 9
-    foreground_color = "#272c30"
-    palette = "#272c30:#e9aa9a:#749b7a:#cec27d:#507191:#9b7495:#7ab8b8:#d9d9d9:#3e454e:#b85766:#8ec553:#bbab54:#6ea1d9:#ad7fa8:#2aa198:#cccccc"
-    scrollback_infinite = True
-    scrollback_lines = 50000
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[nord]]
-    cursor_color = "#aaaaaa"
-  [[yl-dark]]
-    background_color = "#2E3440"
-    background_darkness = 0.87
-    color_scheme = custom
-    cursor_color = "#D8DEE9"
-    cursor_shape = underline
-    custom_command = tmux -2
-    font = DejaVu Sans Mono 9
-    foreground_color = "#D8DEE9"
-    palette = "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#8FBCBB:#ECEFF4"
-    scrollback_infinite = True
-    scrollback_lines = 5000
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[yl-darkblue]]
-    background_color = "#0d101e"
-    background_darkness = 0.87
-    color_scheme = custom
-    cursor_color = "#d9d9d9"
-    cursor_shape = underline
-    custom_command = tmux -2
-    font = DejaVu Sans Mono 9
-    foreground_color = "#ffffff"
-    palette = "#555753:#ff6600:#75bd80:#edd400:#507191:#9b7495:#80d8d8:#767878:#e6e6e6:#b85766:#8ec553:#b2bb54:#6ea1d9:#ad7fa8:#2aa198:#e6e6e6"
-    scrollback_infinite = True
-    scrollback_lines = 5000
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False

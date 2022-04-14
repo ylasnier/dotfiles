@@ -56,11 +56,8 @@ function build_hub() {
 function init_pm() {
   case "$OSTYPE" in
     linux*)
-      # I personnally prefer aptitude over apt-get
-      which aptitude; [[ $? -eq 0 ]] && pm="aptitude install -y"
-                                     && aptitude update && break
-      which apt-get;  [[ $? -eq 0 ]] && pm="apt-get install -y"
-                                     && apt-get update && break
+      which apt; [[ $? -eq 0 ]] && pm="apt install -y"
+                                && apt update && break
       which yum; [[ $? -eq 0 ]] && pm="yum -y install" && break
       # TODO complete for other package managers ..
       ;;
