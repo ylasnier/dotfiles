@@ -5,7 +5,7 @@ set mousemodel=popup " should propose a popup menu on right-click
 "set guifont=DejaVu\ Sans\ Mono\ Book\ 12 " font of choice
 "set guifont=Droid\ Sans\ Mono\ 11 " font of choice
 "set guifont=Fira\ Code\ Retina\ 11" font of choice
-set guifont=Noto\ Sans\ Mono\ 12 " font of choice
+set guifont=Noto\ Sans\ Mono:h12 " font of choice
 set guioptions=aie " advanced, try help 'go
 set mousehide " hide the mouse
 set guicursor=a:hor20Cursor
@@ -13,10 +13,9 @@ syntax enable
 set background=dark
 "colorscheme base16-tomorrow-night
 "colorscheme hybrid
-colorscheme base16-github
-" turn italic from solarized off
-let g:solarized_italic=0
-let g:codeschool_termcolors=256
+"colorscheme base16-github
+colorscheme base16-material-palenight
+"let g:codeschool_termcolors=256
 "colorize blank lines tildes same as bg (looks like they're gone)
 hi NonText guifg=bg
 set visualbell t_vb= "disable annoying beeps
@@ -34,7 +33,7 @@ au BufWinLeave * call clearmatches()
 " tab navigation
 nnoremap <C-Left>       <Esc>:tabprevious<CR>
 nnoremap <C-Right>      <Esc>:tabnext<CR>
-nnoremap <C-t>          <Esc>:tabnew<CR>
+"nnoremap <C-t>          <Esc>:tabnew<CR>
 "nnoremap <C-w>          <Esc>:tabclose<CR>
 nnoremap <C-w>          <Esc>:bw<CR>
 inoremap <C-Left>       <Esc>:tabprevious<CR>

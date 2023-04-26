@@ -11,7 +11,7 @@ set showmatch matchtime=2 "when close a bracket, show where it was opened
 set ruler
 
 "easy window clipboard sharing
-set clipboard=autoselect,unnamedplus
+set clipboard=autoselect,unnamed
 
 "colors
 syntax on
@@ -107,82 +107,85 @@ set backspace=2 "allow to backspace indent,eol,start
 "set lazyredraw "usefull for macros
 "set autochdir
 
-" force to save with sudoer privileges
+"force to save with sudoer privileges
 cnoremap w!! w !sudo tee > /dev/null %
 
-" split window navigation
+"split window navigation
 nnoremap <A-Left> <C-W><C-H>
 nnoremap <A-Right> <C-W><C-L>
 nnoremap <A-Down> <C-W><C-J>
 nnoremap <A-Up> <C-W><C-K>
 
-" set the runtime path to include vim-plug and initialize
+"set the runtime path to include vim-plug and initialize
 call plug#begin('~/.vim/plugged')
 
-Plug 'rking/ag.vim'
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive' " :Git commands
+Plug 'tpope/vim-eunuch' "Unix commands (:Move, :Mkdir, :SudoWrite...)
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
-"Plug 'dhruvasagar/vim-prosession'
-Plug 'xolox/vim-misc'
-"Plug 'xolox/vim-session'
-"Plug 'xolox/vim-easytags'
-Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-"function! BuildYCM(info)
-"  if a:info.status == 'installed' || a:info.force
-"    !./install.py --clang-completer
-"  endif
-"endfunction
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --clang-completer
+  endif
+endfunction
 
+Plug 'Raimondi/delimitMate'
+Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'chriskempson/base16-vim'
 Plug 'EinfachToll/DidYouMean'
 Plug 'matze/vim-move'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-"Plug 'roman/golden-ratio'
 Plug 'godlygeek/tabular'
-"Plug 'fatih/vim-go'
+Plug 'junegunn/limelight.vim' "hyperfocus writing
+Plug 'junegunn/goyo.vim' "distraction-free writing
+"Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+nmap <C-P> :FZF<CR>
+nmap <C-T> :Buffers<CR>
 
+Plug 'rking/ag.vim'
+
+Plug 'scrooloose/nerdtree'
+"let g:nerdtree_tabs_open_on_gui_startup = 0
+map <A-n> :NERDTreeToggle<CR>
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'jistr/vim-nerdtree-tabs'
+
+"git diff: show which lineas been added, deleted or modifier in the sign column
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_enabled = 1
 let g:gitgutter_max_signs = 1000
 
-"Plug 'szw/vim-ctrlspace'
-"set showtabline=0
-"Plug 'wincent/Command-T'
-"Plug 'kien/ctrlp'
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'jistr/vim-nerdtree-tabs'
-"let g:nerdtree_tabs_open_on_gui_startup = 0
-map <A-n> :NERDTreeToggle<CR>
-
 Plug 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0
 
-"Plug 'itchyny/lightline.vim'
-"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-"let g:Powerline_symbols = 'fancy'
-"set laststatus=0
-"Plug 'Yggdroot/indentLine'
-"let g:indentLine_char = '︙'
-"let g:indentLine_leadingSpaceEnabled = 1
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+set laststatus=2
 
 "Plug 'vim-syntastic/syntastic'
 "let b:syntastic_checkers=['syntaxerl']
 "let b:syntastic_checkers=['syntaxc']
 
+"go support
+"Plug 'fatih/vim-go'
 "erlang support
 Plug 'jimenezrick/vimerl'
 "Plug 'vim-erlang/vim-erlang-runtime'
@@ -193,14 +196,24 @@ Plug 'jimenezrick/vimerl'
 "Plug 'vim-erlang/vim-erlang-skeletons'
 "Plug 'vim-erlang/vim-erlang-tags'
 "Plug 'vim-erlang/erlang-motions.vim'
+"erlang indent size and type
+au BufNewFile,BufRead *.erl set ts=4 sw=4 sts=4 expandtab
+au BufNewFile,BufRead *.hrl set ts=4 sw=4 sts=4 expandtab
+"elixir support
+Plug 'elixir-editors/vim-elixir'
+Plug 'dense-analysis/ale'
+let g:ale_fixers = { 'elixir': ['mix_format'] }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
 "plist support for osx config files
 Plug 'darfink/vim-plist'
 "ansible support
 Plug 'chase/vim-ansible-yaml'
 "plantuml support
 Plug 'aklt/plantuml-syntax'
-"coffee color syntax (uses vim-coffee-script)
-Plug 'kchmck/vim-coffee-script'
 au BufNewFile,BufRead *.coffee set filetype=coffee
 "shell color syntax forced to zsh color syntax
 au BufNewFile,BufRead *.sh set syntax=zsh
@@ -209,12 +222,12 @@ au BufNewFile,BufRead *.amt set syntax=erlang
 "markdown color syntax
 au BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufRead,BufEnter *.md syn match markdownIgnore "_"
-"erlang indent size and type
-au BufNewFile,BufRead *.erl set ts=4 sw=4 sts=4 expandtab
-au BufNewFile,BufRead *.hrl set ts=4 sw=4 sts=4 expandtab
+
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'kristijanhusak/vim-hybrid-material'
+
 "remove trailing spaces when leave a buffer
 "au FileType c,h,cpp,sh,erl,hrl au BufWritePre <buffer> :%s/\s\+$//e
 
 " All of your Plugins must be added before the following line
 call plug#end()
-
