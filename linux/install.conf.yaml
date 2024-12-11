@@ -3,27 +3,14 @@
 - shell:
     - [mkdir -p ~/.bin, Ensure .bin directory exists]
     - [mkdir -p ~/.config, Ensure .config directory exists]
-    - [mv ~/Bureau ~/bureau, Rename desktop directory]
-    - [mv ~/Téléchargements ~/telechargements, Rename download directory]
-    - [mv ~/Modèles ~/modeles , Rename templates directory]
-    - [mv ~/Public ~/public, Rename publicshare directory]
-    - [mv ~/Documents ~/documents, Rename documents directory]
-    - [mv ~/Musique ~/musique, Rename music directory]
-    - [mv ~/Images ~/images, Rename images directory]
-    - [mv ~/Vidéos ~/videos, Rename videos directory]
     - [dconf load / < linux/dconf/backup, Load gnome settings]
 
 - link:
     ~/.zprofile: linux/zsh/zprofile
     ~/.xprofile: workstation/zshenv
     ~/.gtkrc-2.0: linux/gtk/gtkrc-2.0
-   #~/.conkyrc: linux/conky/conkyrc
-   #~/.config/autostart/conky.desktop: linux/conky/conky-autostart.desktop
-   #~/.config/gtk-3.0/gtk.css: linux/gtk/gtk-3.0/gtk.css
     ~/.config/dconf/user: linux/dconf/user
     ~/.config/user-dirs.dirs: linux/user-dirs.dirs
     ~/.config/terminator/config: linux/terminator/config
     ~/images/Wallpapers: $HOME/Dropbox/Apps/Desktoppr
-    ~/.local/share/fonts: common/fonts
-    ~/.bin/hidpi-scale:  linux/bin/gtk-hidpi-scale.sh
 

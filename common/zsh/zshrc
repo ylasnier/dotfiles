@@ -55,15 +55,17 @@ colors
 #last line after executing a command, e.g. curl response body
 #unsetopt PROMPT_SP
 
-function prompt_char {
-  git branch >/dev/null 2>/dev/null && echo '☿' && return
-  hg root >/dev/null 2>/dev/null && echo 'λ' && return
-  echo '○'
-}
+#function prompt_char {
+#  git branch >/dev/null 2>/dev/null && echo '☿' && return
+#  hg root >/dev/null 2>/dev/null && echo 'λ' && return
+#  echo '○'
+#}
 
 #source $HOME/.zsh/zsh-git-prompt/zshrc.sh
 
-PROMPT="%F{cyan}%n%f%F{red}@%m %f%F{red}%2~%f "
+#PROMPT='${debian_chroot:+($debian_chroot)}\[\\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+PROMPT="%B%F{green}%n@%m%f%F{black}:%f%F{blue}%2~%f%b$ "
 #PROMPT="%F{cyan}%n%f%F{red}@%m %f%F{red}%2~%f"'$(git_super_status)'" "
 #%T"' $(prompt_char) '"%f%b"
 
@@ -140,6 +142,10 @@ alias etchosts="sudo vim /etc/hosts"
 alias :e="vim"
 alias :q="exit"
 alias ll='ls -alh'
+alias vi="nvim"
+alias vim="nvim"
+alias view="nvim -R"
+alias vimdiff="nvim -d"
 
 #-----------
 # Completion
@@ -148,43 +154,11 @@ alias ll='ls -alh'
 autoload -Uz compinit
 compinit
 
-#zstyle ':completion:*' auto-description 'specify: %d'
-#zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate _prefix
-#zstyle ':completion:*' format 'Completing %d'
-#zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#---------------------
-# node version manager
-#---------------------
-
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#
-#nvm use --delete-prefix v6.14.4
-#nvm use --delete-prefix v4.6.2 --silent
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-#-----
-# rust
-#-----
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
-
-#----
-# go
-#----
-
-export PATH="$HOME/.bin/go/bin:$PATH"
-
-
-PATH="/home/yl/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/yl/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/yl/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/yl/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/yl/perl5"; export PERL_MM_OPT;
+# asdf
+. "$HOME/.asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit

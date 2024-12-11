@@ -7,7 +7,6 @@
 - link:
     #git
     ~/.gitconfig:  common/git/gitconfig
-    ~/.config/hub: common/git/hub
     #vim
     ~/.vimrc:      common/vim/vimrc
     ~/.gvimrc:     common/vim/gvimrc
@@ -25,6 +24,5 @@
 
 - shell :
     - [chsh -s /bin/zsh, Set zsh as login shell]
-    #- [curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", Install vim-plug]
+    - [curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", Install vim-plug]
     - [vim +PlugInstall +qal, Install vim plugins]
-    #- [curl "https://raw.githubusercontent.com/Tarrasch/zsh-bd/master/bd.zsh" > ~/.zsh/zsh.bd, Install zsh.bd]

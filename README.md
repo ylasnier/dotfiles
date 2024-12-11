@@ -17,7 +17,7 @@ all applications I use on each operating systems.
 `ruby` and `Xcode` are also required on OS X (installing just the `Xcode Command Line Tools` is not sufficient).
 
 The Linux installation script works in fact only for Debian family
-distributions (it uses `aptitude`). For complete packages installation under
+distributions (it uses `apt`). For complete packages installation under
 Debian, user has to be `root`or a `sudoer`.
 
 ## Installation
@@ -83,7 +83,7 @@ directories.
 
 Applications installation for each system are just simple scripts I wrote
 specifically to each package managers I use (checkout
-[linux/install-packages][linux-packages] for `aptitude`,
+[linux/install-packages][linux-packages] for `apt`,
 [osx/install-packages][osx-packages] for `brew`, and
 [common/install-packages][common-packages] for any package involving other
 common ways of installation, such as `npm` packages).

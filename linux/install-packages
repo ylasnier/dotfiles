@@ -5,20 +5,9 @@ apt update
 
 #settings
 apt install -y gnupg
-apt install -y gnome-tweak-tool
-#apt install -y laptop-mode-tools
 
 #shell
 apt install -y zsh
-apt install -y terminator
-
-#network
-apt install -y curl
-apt install -y wget
-#apt install -y thunderbird
-wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2020.03.04_amd64.deb -O /tmp/dropbox_2020.03.04_amd64.deb
-dpkg -i /tmp/dropbox*.deb
-#apt install -y deluge
 
 #text
 apt install -y vim
@@ -36,47 +25,11 @@ apt install -y build-essential
 apt install -y make
 apt install -y autoconf
 apt install -y cmake
-apt install -y golang-go
-apt install -y exuberant-ctags
-wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb -P /tmp/
-dpkg -i /tmp/erlang-solutions_1.0_all.deb
-apt install nodejs
-ln -s /usr/local/bin/node $(which nodejs)
-
-#virtualization
-apt install -y ansible
-apt install -y vagrant
-apt install -y qemu-kvm
-apt install -y libvirt-clients
-apt install -y libvirt-daemon-system
-apt install -y lxc
-
-#draw
-#apt install -y gimp
-apt install -y inkscape
 
 #media
 apt install -y vlc
-#apt install -y steam
-
-#misc
-apt install -y gparted
-apt install -y unzip
-#apt install -y conky
 
 #fonts
 apt install -y fonts-dejavu
 apt install -y fonts-noto
-
-#theme
-#if [ ! -d $ARC_THEME]; then
-#  cd $ARC_THEME
-#  GNOME_VERSION_MAJOR=`gnome-shell --version | awk '{print $3}' | cut -d. -f1`
-#  GNOME_VERSION_MINOR=`gnome-shell --version | awk '{print $3}' | cut -d. -f2`
-#  ./autogen.sh --prefix=/usr --with-gnome=$GNOME_VERSION_MAJOR.$GNOME_VERSION_MINOR
-#  make install
-#  cd -
-#else
-#  echo "$ARC_THEME does not exist. Skipped Arc GTK theme installation."
-#fi
 
