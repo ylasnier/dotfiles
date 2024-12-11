@@ -11,6 +11,7 @@
     - [mv ~/Musique ~/musique, Rename music directory]
     - [mv ~/Images ~/images, Rename images directory]
     - [mv ~/Vidéos ~/videos, Rename videos directory]
+    - [dconf load / < linux/dconf/backup, Load gnome settings]
 
 - link:
     ~/.zprofile: linux/zsh/zprofile
