@@ -1,11 +1,10 @@
 set columns=87 lines=49 " don't keep the parent terminal size
 set mousemodel=popup " should propose a popup menu on right-click
-"set guifont=Monospace\ 12 " font of choice
-"set guifont=Monospace\ Regular\ 11 " font of choice
-"set guifont=DejaVu\ Sans\ Mono\ Book\ 12 " font of choice
+"set guifont=Monospace\ Regular\ 12 " font of choice
+set guifont=DejaVu\ Sans\ Mono\ 11 " font of choice
 "set guifont=Droid\ Sans\ Mono\ 11 " font of choice
 "set guifont=Fira\ Code\ Retina\ 11" font of choice
-set guifont=Noto\ Sans\ Mono:h12 " font of choice
+"set guifont=Noto\ Mono\ 12 " font of choice
 set guioptions=aie " advanced, try help 'go
 set mousehide " hide the mouse
 set guicursor=a:hor20Cursor

@@ -11,7 +11,10 @@ set showmatch matchtime=2 "when close a bracket, show where it was opened
 set ruler
 
 "easy window clipboard sharing
-set clipboard=autoselect,unnamed
+"linux
+"set clipboard=autoselect,unnamedplus
+"macos
+"set clipboard=autoselect,unnamed
 
 "colors
 syntax on
@@ -203,7 +206,6 @@ au BufNewFile,BufRead *.hrl set ts=4 sw=4 sts=4 expandtab
 Plug 'elixir-editors/vim-elixir'
 Plug 'dense-analysis/ale'
 let g:ale_fixers = { 'elixir': ['mix_format'] }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
 au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
