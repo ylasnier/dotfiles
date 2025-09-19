@@ -10,9 +10,11 @@ set report=0 "number of substitutions done with :s, instead of number of lines
 set showmatch matchtime=2 "when close a bracket, show where it was opened
 set ruler
 
+let mapleader = ","
+
 "easy window clipboard sharing
 "linux
-"set clipboard=autoselect,unnamedplus
+set clipboard=autoselect,unnamedplus
 "macos
 "set clipboard=autoselect,unnamed
 
@@ -145,6 +147,7 @@ Plug 'matze/vim-move'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'junegunn/limelight.vim' "hyperfocus writing
 Plug 'junegunn/goyo.vim' "distraction-free writing
 "Fuzzy finder
@@ -224,9 +227,16 @@ au BufNewFile,BufRead *.amt set syntax=erlang
 "markdown color syntax
 au BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufRead,BufEnter *.md syn match markdownIgnore "_"
+"outline
+Plug 'ubaldot/vim-outline'
 
+"colorschemes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/edge'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 "remove trailing spaces when leave a buffer
 "au FileType c,h,cpp,sh,erl,hrl au BufWritePre <buffer> :%s/\s\+$//e

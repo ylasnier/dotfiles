@@ -1,7 +1,7 @@
-set columns=87 lines=49 " don't keep the parent terminal size
+set columns=140 lines=70 " don't keep the parent terminal size
 set mousemodel=popup " should propose a popup menu on right-click
 "set guifont=Monospace\ Regular\ 12 " font of choice
-set guifont=DejaVu\ Sans\ Mono\ 11 " font of choice
+set guifont=DejaVu\ Sans\ Mono\ 12 " font of choice
 "set guifont=Droid\ Sans\ Mono\ 11 " font of choice
 "set guifont=Fira\ Code\ Retina\ 11" font of choice
 "set guifont=Noto\ Mono\ 12 " font of choice
@@ -10,10 +10,13 @@ set mousehide " hide the mouse
 set guicursor=a:hor20Cursor
 syntax enable
 set background=dark
-"colorscheme base16-tomorrow-night
-"colorscheme hybrid
+"colorscheme hybrid_material
 "colorscheme base16-github
-colorscheme base16-material-palenight
+"colorscheme base16-material-palenight
+"colorscheme edge
+colorscheme tokyonight
+"colorscheme catpuccin-frappe
+"colorscheme everforest
 "let g:codeschool_termcolors=256
 "colorize blank lines tildes same as bg (looks like they're gone)
 hi NonText guifg=bg
