@@ -18,9 +18,9 @@
     ~/.zshrc:  common/zsh/zshrc
     ~/.zshenv: common/zsh/zshenv
     #scripts
-    ~/.bin/encrypt-tar: common/bin/encrypt-tar.sh
-    ~/.bin/decrypt-tar: common/bin/decrypt-tar.sh
-    ~/.bin/split-pdf:   common/bin/split-pdf.sh
+    ~/.local/bin/encrypt-tar: common/bin/encrypt-tar.sh
+    ~/.local/bin/decrypt-tar: common/bin/decrypt-tar.sh
+    ~/.local/bin/split-pdf:   common/bin/split-pdf.sh
 
 - shell :
     - [chsh -s /bin/zsh, Set zsh as login shell]

@@ -22,34 +22,6 @@ alias -s html="x-www-browser "
 alias -s html="x-www-browser "
 alias ccc="xsel --clipboard"
 
-#--------------------
-# directories aliases
-#--------------------
-
-#home
-alias cdfreebox='mkdir -p ~/freebox; curlftpfs freebox:<password>@mafreebox.freebox.fr ~/freebox -o nonempty; cd ~/freebox'
-
-#stage
-alias cdmaster='cd ~/documents/univ/master'
-alias cdstage='cd ~/documents/univ/master/masterS4/stage'
-alias cdkern='cd ~/documents/univ/master/masterS4/stage/dev/remotecache/devel/linux-remotecache'
-alias cdremote='cd ~/documents/univ/master/masterS4/stage/dev/remotecache/devel/linux-remotecache/drivers/staging/remotecache'
-
-#--------------------
-# env var
-#--------------------
-
-# stage
-export MASTER='~/documents/univ/master/masterS4/stage'
-export REMOTECACHE='~/documents/univ/master/masterS4/stage/remotecache/devel/linux-remotecache/drivers/staging/remotecache'
-
-#--------------------
-# others
-#--------------------
-
-#OOo theme
-#export OOO_FORCE_DESKTOP=gnome
-
 #----------
 # ls colors
 #----------
