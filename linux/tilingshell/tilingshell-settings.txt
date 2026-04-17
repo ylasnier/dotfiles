@@ -1,0 +1,16 @@
+[/]
+edge-tiling-mode='default'
+enable-move-keybindings=false
+enable-snap-assist=true
+enable-tiling-system=true
+inner-gaps=uint32 8
+move-window-down=['<Control>Down']
+move-window-left=['<Control>Left']
+move-window-right=['<Control>Right']
+move-window-up=['<Control>Up']
+outer-gaps=uint32 12
+selected-layouts=[['Layout 2', 'Layout 2'], ['Layout 2', 'Layout 2']]
+show-indicator=true
+tiling-system-activation-key=['0']
+tiling-system-deactivation-key=['0']
+window-use-custom-border-color=false
