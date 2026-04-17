@@ -43,6 +43,8 @@ bindkey 'OA' up-line-or-search
 bindkey 'OB' down-line-or-search
 bindkey '[A' up-line-or-search
 bindkey '[B' down-line-or-search
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 
 #-------
 # Prompt
@@ -102,7 +104,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}%{✔%G%}"
 autoload -U promptinit
 promptinit
 
-
 #------------
 # Misc configs
 #------------
@@ -158,7 +159,64 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# edit command line in vim
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # asdf
 . "$HOME/.asdf/asdf.sh"
 fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+# direnv
+eval "$(direnv hook zsh)"
+
+# erlang shell history
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# elixir compilation
+# run deps compilation in multiple cores
+local n_cpu="$(( $(nproc) / 2 ))"
+export MIX_OS_DEPS_COMPILE_PARTITION_COUNT="$n_cpu"
+
+# aliases
+
+alias git_merge_back_master_to_develop='git checkout master;git pull; git checkout develop; git pull; git merge --no-ff --no-edit master;git push origin develop'
+alias sshblancheneige='ssh -i ~/.ssh/id_rsa ec2-user@54.171.21.129'
+alias sshkibana='ssh -i ~/.ssh/awfus_ie.pem ubuntu@52.48.66.82'
+alias sshdokku='ssh dokku'
+alias psql-digiforma-local='psql "host=db-digiforma-prod.ch6qqqq6mewh.eu-west-1.rds.amazonaws.com port=5432 dbname=digiforma user=vRvKq6XZxh4YKYfaDimu sslmode=verify-full sslrootcert=~/.ssh/global-bundle.pem"'
+alias psql-digiforma-prod='psql "$(doppler secrets get --project digiforma --config prd --plain DATABASE_URL)"'
+alias psql-digiforma-staging='psql "$(doppler secrets get --project digiforma --config stg --plain DATABASE_URL)"'
+#alias psql-digiforma-staging='psql -U adm1rtin -d digiforneige -p 5432 -h blanche-neige-staging.cnkq40kaocis.eu-west-1.rds.amazonaws.com'
+alias psql-digiforma-rainbowdash='psql -U adm1rtin -d digiforneige -p 5432 -h blanche-neige-rainbowdash.cnkq40kaocis.eu-west-1.rds.amazonaws.com'
+alias psql-identity-prod='psql "$(doppler secrets get --project digiforma-identity --config prd --plain DATABASE_URL)"'
+alias psql-identity-staging='psql "$(doppler secrets get --project digiforma-identity --config stg --plain DATABASE_URL)"'
+alias digiforma-bn='doppler run --preserve-env -- iex -S mix phx.server'
+alias digiforma-local='USE_BLANCHE_NEIGE=false doppler run --preserve-env -- iex -S mix phx.server'
+alias digiforma-prod='heroku run "/opt/app/bin/digiforma start_iex" -a digiforma'
+alias digiforma-staging='heroku run "/opt/app/bin/digiforma start_iex" -a digiforma-staging'
+alias identity-local='doppler run --preserve-env -- iex -S mix phx.server'
+alias identity-prod='heroku run "PHX_SERVER=true exec /app/bin/app start_iex" -a digiforma-identity-prod'
+alias identity-staging='heroku run "PHX_SERVER=true exec /app/bin/app start_iex" -a digiforma-identity-staging'
+alias extranet='doppler run -- npm start'
+alias bnpassword='doppler secrets get BLANCHE_NEIGE_URL --json'
+alias bnimport='USE_BLANCHE_NEIGE=false doppler run --preserve-env -- mix import_academy_data'
+alias bnexport="cd ~/Code/digiforma-academies-dump; doppler run --preserve-env --command='docker run -e DOPPLER_TOKEN=\${DOPPLER_TOKEN} -e ACADEMY_IDS=\${ACADEMY_IDS} -v $(pwd)/dumps:/app/dumps digiforma-academies-dump'"
+alias dbreset='USE_BLANCHE_NEIGE=false doppler run --preserve-env -- mix ecto.reset'
+
+export CODE_DIR="$HOME/Code"
+alias cdcode="cd $CODE_DIR"
+alias cddigiforma="cd $CODE_DIR/digiforma"
+alias cdidentity="cd $CODE_DIR/digiforma-identity"
+alias cddocgen="cd $CODE_DIR/docgen"
+alias cdextranet="cd $CODE_DIR/extranet"
+alias cdk6="cd $CODE_DIR/k6"
+
+alias doppler-enable-identity='doppler configs update --inherits digiforma.dev_feat_digiforma_identity'
+alias doppler-enable-kibana='doppler configs update --inherits digiforma.dev_feat_kibana'
+alias doppler-enable-grafana-local='doppler configs update --inherits digiforma.dev_feat_grafana_local'
+alias doppler-clear-inheritance='doppler configs update --project proj --config dev --inherits='
