@@ -10,7 +10,6 @@
     ~/.xprofile: workstation/zshenv
     ~/.gtkrc-2.0: linux/gtk/gtkrc-2.0
     ~/.config/dconf/user: linux/dconf/user
-    ~/.config/user-dirs.dirs: linux/user-dirs.dirs
     ~/.config/terminator/config: linux/terminator/config
-    ~/images/Wallpapers: $HOME/Dropbox/Apps/Desktoppr
+    ~/Images/Wallpapers: common/wallpapers
 

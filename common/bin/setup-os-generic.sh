@@ -51,10 +51,8 @@ function build_hub() {
 function init_pm() {
   case "$OSTYPE" in
     linux*)
-      which apt; [[ $? -eq 0 ]] && pm="apt install -y"
-                                && apt update && break
-      which yum; [[ $? -eq 0 ]] && pm="yum -y install" && break
-      # TODO complete for other package managers ..
+      which apt; [[ $? -eq 0 ]] && pm="apt install -y" && apt update && break
+      which dnf; [[ $? -eq 0 ]] && pm="dnf install -y" && break
       ;;
     darwin*)
       if which brew; then
@@ -69,6 +67,7 @@ function init_pm() {
               If not, pick and install one of them before retrying : /
               http://brew.sh, https://www.macports.org/"
         exit 1
+      fi
   esac
   return 0
 }
@@ -77,10 +76,6 @@ function install_apps() {
   if [ $pm != "brew" ]; then
     apps=`echo $apps | sed 's/hub//g'`
     [[ "$apps" == *"git"* ]] && gitapps="hub"
-  fi
-  if [[ "$apps" == *"npm"* ]]
-    apps=`echo $apps | sed 's/coffee//g'`
-    npmapps="coffee-script"
   fi
   if [[ "$apps" == *"iterm2"* ]]; then
     apps=`echo $apps | sed 's/iterm2//g'`
@@ -98,12 +93,6 @@ function install_apps() {
         apps=`echo $apps | sed 's/ctags//g'`
         apps="$apps exuberant-ctags"
     esac
-  fi
-
-  if [[ "$apps" == *"meteor"* ]]; then
-    apps=`echo $apps | sed 's/meteor//g'`
-    if ! which curl; then pm curl; fi
-    curl https://install.meteor.com/ | sh
   fi
 
   if [ $apps ]; then
@@ -129,7 +118,7 @@ function install_apps() {
       fi
       $pm cask $caskapps
   fi
-  if [[ "$apps" == *"zsh"* ]]
+  if [[ "$apps" == *"zsh"* ]]; then
     chsh -s $(which zsh)
   fi
   return 0
@@ -163,7 +152,7 @@ function main() {
   users=$USERNAME
   verbose=false
   bin="/usr/local/bin"
-  apps="zsh vim git hub nodejs npm coffee meteor ctags"
+  apps="zsh vim git hub nodejs npm ctags"
   case "$OSTYPE" in
       linux*)
           apps="${apps} terminator";;

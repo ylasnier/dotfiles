@@ -14,7 +14,10 @@ let mapleader = ","
 
 "easy window clipboard sharing
 "linux
-set clipboard=autoselect,unnamedplus
+if has('clipboard')
+  set clipboard=autoselect,unnamedplus
+endif
+
 "macos
 "set clipboard=autoselect,unnamed
 
@@ -213,7 +216,7 @@ Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
 au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
 au BufRead,BufNewFile mix.lock set filetype=elixir
-"plist support for osx config files
+"plist support for macOS config files
 Plug 'darfink/vim-plist'
 "ansible support
 Plug 'chase/vim-ansible-yaml'

@@ -1,0 +1,38 @@
+#!/bin/bash
+ARC_THEME=$DOTFILES/linux/gtk/themes/arc
+
+dnf update
+
+# settings
+dnf install -y gnupg2
+
+# shell
+dnf install -y zsh
+
+# text
+dnf install -y vim-enhanced
+dnf install -y vim-X11
+dnf install -y neovim
+dnf install -y texlive
+dnf install -y texlive-collection-latexextra
+dnf install -y texlive-babel-french
+
+# monitoring
+dnf install -y htop
+dnf install -y glances
+
+# dev
+dnf install -y make
+dnf install -y autoconf
+dnf install -y cmake
+dnf install -y gcc-c++
+dnf install -y golang
+
+# media
+dnf install -y vlc
+dnf install -y steam
+
+# fonts
+dnf install -y dejavu-fonts-all
+dnf install -y google-noto-fonts-all
+

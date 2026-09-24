@@ -61,8 +61,14 @@ cd dotfiles
 ##### Debian
 
 ```bash
-sudo ./linux/install-packages
-./common/install-packages
+su
+./linux/install-packages-apt
+```
+
+##### Fedora
+
+```bash
+sudo ./linux/install-packages-dnf
 ```
 
 ##### macOS

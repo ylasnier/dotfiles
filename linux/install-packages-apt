@@ -3,33 +3,36 @@ ARC_THEME=$DOTFILES/linux/gtk/themes/arc
 
 apt update
 
-#settings
+# settings
 apt install -y gnupg
 
-#shell
+# shell
 apt install -y zsh
 
-#text
+# text
 apt install -y vim
 apt install -y vim-gui-common
+apt install -y neovim
 apt install -y texlive
 apt install -y texlive-latex-extra
 apt install -y texlive-lang-french
 
-#monitoring
+# monitoring
 apt install -y htop
 apt install -y glances
 
-#dev
+# dev
 apt install -y build-essential
 apt install -y make
 apt install -y autoconf
 apt install -y cmake
+apt install -y golang-go
 
-#media
+# media
 apt install -y vlc
+apt install -y steam
 
-#fonts
+# fonts
 apt install -y fonts-dejavu
 apt install -y fonts-noto
 

@@ -19,15 +19,24 @@ cd $DOTFILES
 
 case "$OSTYPE" in
   linux*)
-    sudo ./linux/install-packages
-    ./install -c linux/install.conf.yaml
+    VERSION=$(source /etc/os-release && echo $ID)
+
+    case "$VERSION" in
+	Debian)
+	    sudo ./linux/install-packages-apt
+	;;
+	Fedora)
+	    sudo ./linux/install-packages-dnf
+	
+	esac
+	./install -c linux/install.conf.yaml
     ;;
+
   darwin*)
     ./macos/install-packages
     ./install -c macos/install.conf.yaml
 esac
 
-./common/install-packages
 ./install -c common/install.conf.yaml
 
 if [ -d workstation ]; then
