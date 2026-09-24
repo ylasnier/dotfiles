@@ -5,15 +5,14 @@
     - [mkdir -p ~/.config, Ensure .config directory exists]
 
 - link:
-    ~/.zprofile: osx/zsh/zprofile
+    ~/.zprofile: macos/zsh/zprofile
     ~/Library/Preferences/com.googlecode.iterm2.plist:
-        path: osx/iterm2/com.googlecode.iterm2.plist
+        path: macos/iterm2/com.googlecode.iterm2.plist
         force: true
     ~/Library/Fonts:
         path: common/fonts
         force: true
     ~/.bin/updatedb: /usr/libexec/locate.updatedb
-    #tex - missing simlinks after mactex installation via cask on el capitan
     ~/.bin/pdftex: /usr/local/texlive/2015/bin/x86_64-darwin/pdftex
     ~/.bin/pdflatex: /usr/local/texlive/2015/bin/x86_64-darwin/pdflatex
     ~/.bin/bibtex: /usr/local/texlive/2015/bin/x86_64-darwin/bibtex

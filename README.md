@@ -14,7 +14,7 @@ all applications I use on each operating systems.
 
 `curl` and `git` are required.
 
-`ruby` and `Xcode` are also required on OS X (installing just the `Xcode Command Line Tools` is not sufficient).
+`ruby` and `Xcode` are also required on macOS (installing just the `Xcode Command Line Tools` is not sufficient).
 
 The Linux installation script works in fact only for Debian family
 distributions (it uses `apt`). For complete packages installation under
@@ -52,7 +52,7 @@ cd dotfiles
 #### Links
 
 ```bash
-./install -c linux/install.conf.yaml  # or osx/install.conf.yaml
+./install -c linux/install.conf.yaml  # or macos/install.conf.yaml
 ./install -c common/install.conf.yaml
 ```
 
@@ -65,26 +65,25 @@ sudo ./linux/install-packages
 ./common/install-packages
 ```
 
-##### OS X
+##### macOS
 
 ```bash
-./osx/install-packages
-./common/install-packages
+./macos/install-packages
 ```
 
 ## How it works
 
 Dotfiles bootstrapping are powered by [anishathalye/dotbot][dotbot].  Dotbot
 create symlinks to dotfiles regarding configuration files. For dotfiles that
-are common to Linux and OS X, checkout [common/install.conf.yaml][common-conf].
+are common to Linux and macOS, checkout [common/install.conf.yaml][common-conf].
 For dotfiles and dotbot configuration specific to each system, checkout
-[linux/install.conf.yaml][linux-conf] or [osx/install.conf.yaml][osx-conf]
+[linux/install.conf.yaml][linux-conf] or [macos/install.conf.yaml][macos-conf]
 directories.
 
 Applications installation for each system are just simple scripts I wrote
 specifically to each package managers I use (checkout
 [linux/install-packages][linux-packages] for `apt`,
-[osx/install-packages][osx-packages] for `brew`, and
+[macos/install-packages][macos-packages] for `brew`, and
 [common/install-packages][common-packages] for any package involving other
 common ways of installation, such as `npm` packages).
 
@@ -104,12 +103,12 @@ See [LICENSE.md][license] for details.
 [dotbot]: https://github.com/anishathalye/dotbot/
 [common-dir]: common
 [linux-dir]: linux
-[osx-dir]: osx
+[macos-dir]: macos
 [common-conf]: common/install.conf.yaml
 [linux-conf]: linux/install.conf.yaml
-[osx-conf]: osx/install.conf.yaml
+[macos-conf]: macos/install.conf.yaml
 [common-packages]: common/install-packages
 [linux-packages]: linux/install-packages
-[osx-packages]: osx/install-packages
+[macos-packages]: macos/install-packages
 [license]: LICENSE.md
 

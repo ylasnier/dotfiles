@@ -1,5 +1,5 @@
 #!/bin/zsh
-# zsh aliases and env var for osx
+# zsh aliases and env var for macOS
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 

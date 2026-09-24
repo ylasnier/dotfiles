@@ -8,13 +8,8 @@
 #  DESCRIPTION: install core applications
 #
 #      OPTIONS: see function ’usage’ below
-# REQUIREMENTS: osx: homebrew or macports
-#         BUGS: ---
-#        NOTES: ---
-#       AUTHOR: Yves Lasnier <yves.lasnier@ansamb.com>
-#      COMPANY: Ansamb
-#      VERSION: 0.1
-#      CREATED: 27.03.2015
+# REQUIREMENTS: macos: homebrew or macports
+#       AUTHOR: Yves Lasnier <yves.lasnier@gmail.com>
 #
 #==============================================================================
 
@@ -31,7 +26,7 @@ OPTIONS:
 -h :        Print this help message
 
 Available apps : core set : zsh, vim, git, hub, ctags, terminator (linux),
-                            iterm2 (osx), nodejs, npm, coffee, meteor
+                            iterm2 (macOS), nodejs, npm
 EOF
 }
 

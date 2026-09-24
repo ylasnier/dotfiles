@@ -23,8 +23,8 @@ case "$OSTYPE" in
     ./install -c linux/install.conf.yaml
     ;;
   darwin*)
-    ./osx/install-packages
-    ./install -c osx/install.conf.yaml
+    ./macos/install-packages
+    ./install -c macos/install.conf.yaml
 esac
 
 ./common/install-packages
