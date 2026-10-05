@@ -2,14 +2,32 @@
 # Opens a Ptyxis terminal window and an nvim window sharing a random favourite theme, picked among
 # the dark or light ones depending on the GNOME color scheme.
 # Usage: work-session [DIR]   (both windows start in DIR, the current directory by default)
+# Without DIR and outside a terminal (e.g. from a keyboard shortcut), a folder chooser asks for it,
+# opened in ~/Code/digiforma-worktrees.
 set -euo pipefail
 
-# absolute, since Ptyxis resolves -d from its own working directory, not this script's
-work_dir=$(realpath -e -- "${1:-$PWD}")
-if [[ ! -d $work_dir ]]; then
-  echo "work-session: $work_dir is not a directory" >&2
+code_dir=$HOME/Code
+
+fail() {
+  echo "work-session: $1" >&2
+  # a shortcut has no terminal to show the error in
+  [[ -t 2 ]] || zenity --error --title="Work session" --text="$1"
   exit 1
+}
+
+dir=${1:-}
+launched_from_terminal=$([[ -t 0 ]] && echo true || echo false)
+if [[ -z $dir && $launched_from_terminal == true ]]; then
+  dir=$PWD
+elif [[ -z $dir ]]; then
+  # trailing slash: opens inside the folder rather than selecting it in its parent
+  dir=$(zenity --file-selection --directory --title="Work session" \
+    --filename="$code_dir/digiforma-worktrees/") || exit 0
 fi
+
+# absolute, since Ptyxis resolves -d from its own working directory, not this script's
+work_dir=$(realpath -e -- "$dir" 2>/dev/null) || fail "$dir does not exist"
+[[ -d $work_dir ]] || fail "$work_dir is not a directory"
 
 # nvim colorscheme => Ptyxis built-in palette
 declare -A dark_themes=(
