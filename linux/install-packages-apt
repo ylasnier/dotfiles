@@ -5,6 +5,7 @@ apt update
 
 # settings
 apt install -y gnupg
+apt install -y dconf-editor
 
 # shell
 apt install -y zsh

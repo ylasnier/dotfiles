@@ -5,9 +5,14 @@ dnf update
 
 # settings
 dnf install -y gnupg2
+dnf install -y dconf-editor
 
 # shell
 dnf install -y zsh
+dnf install -y eza
+dnf install -y ripgrep
+dnf install -y bat
+dnf install -y fzf
 
 # text
 dnf install -y vim-enhanced
@@ -19,6 +24,8 @@ dnf install -y texlive-babel-french
 
 # monitoring
 dnf install -y htop
+dnf install -y nvtop
+dnf install -y duf
 dnf install -y glances
 
 # dev
@@ -27,6 +34,7 @@ dnf install -y autoconf
 dnf install -y cmake
 dnf install -y gcc-c++
 dnf install -y golang
+dnf install -y gh
 
 # media
 dnf install -y vlc

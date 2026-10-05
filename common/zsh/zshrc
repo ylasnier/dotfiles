@@ -118,6 +118,8 @@ bindkey -e
 setopt nocorrectall
 setopt correct
 
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+
 #-------------------------------
 # Aliases, environment variables
 #-------------------------------
@@ -165,7 +167,6 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 # asdf
-. "$HOME/.asdf/asdf.sh"
 fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 export ASDF_DATA_DIR="$HOME/.asdf"
@@ -220,3 +221,5 @@ alias doppler-enable-identity='doppler configs update --inherits digiforma.dev_f
 alias doppler-enable-kibana='doppler configs update --inherits digiforma.dev_feat_kibana'
 alias doppler-enable-grafana-local='doppler configs update --inherits digiforma.dev_feat_grafana_local'
 alias doppler-clear-inheritance='doppler configs update --project proj --config dev --inherits='
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
