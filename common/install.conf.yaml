@@ -11,6 +11,9 @@
     ~/.vimrc:      common/vim/vimrc
     ~/.gvimrc:     common/vim/gvimrc
     ~/.vim/colors: common/vim/colors
+    ~/.config/nvim/init.lua:
+      path: common/vim/nvim.lua
+      force: true
     #zsh
     ~/.zsh:
       path: common/zsh/zsh

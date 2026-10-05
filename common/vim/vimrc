@@ -54,6 +54,16 @@ set encoding=utf-8
 "search
 set ignorecase
 set smartcase
+
+":grep with ripgrep, opening the results in the quickfix window
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --smart-case
+  set grepformat=%f:%l:%c:%m
+endif
+augroup grep_quickfix
+  au!
+  au QuickFixCmdPost grep cwindow
+augroup END
 set magic "dunno
 
 "printing
@@ -142,7 +152,6 @@ function! BuildYCM(info)
 endfunction
 
 Plug 'Raimondi/delimitMate'
-Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'chriskempson/base16-vim'
 Plug 'EinfachToll/DidYouMean'
@@ -158,8 +167,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 nmap <C-P> :FZF<CR>
 nmap <C-T> :Buffers<CR>
-
-Plug 'rking/ag.vim'
 
 Plug 'scrooloose/nerdtree'
 "let g:nerdtree_tabs_open_on_gui_startup = 0
