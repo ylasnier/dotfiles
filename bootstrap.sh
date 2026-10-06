@@ -27,7 +27,7 @@ case "$OSTYPE" in
 	;;
 	Fedora)
 	    sudo ./linux/install-packages-dnf
-	
+
 	esac
 	./install -c linux/install.conf.yaml
     ;;

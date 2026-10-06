@@ -9,6 +9,10 @@ apt install -y dconf-editor
 
 # shell
 apt install -y zsh
+apt install -y eza
+apt install -y ripgrep
+apt install -y bat
+apt install -y fzf
 
 # text
 apt install -y vim
@@ -20,6 +24,9 @@ apt install -y texlive-lang-french
 
 # monitoring
 apt install -y htop
+apt install -y nvtop
+apt install -y duf
+apt install -y du-dust
 apt install -y glances
 
 # dev
@@ -28,6 +35,7 @@ apt install -y make
 apt install -y autoconf
 apt install -y cmake
 apt install -y golang-go
+apt install -y gh
 
 # media
 apt install -y vlc
