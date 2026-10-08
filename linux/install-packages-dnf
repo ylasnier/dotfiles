@@ -24,6 +24,7 @@ dnf install -y texlive-babel-french
 
 # monitoring
 dnf install -y htop
+dnf install -y btop
 dnf install -y nvtop
 dnf install -y duf
 dnf install -y du-dust

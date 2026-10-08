@@ -24,6 +24,7 @@ apt install -y texlive-lang-french
 
 # monitoring
 apt install -y htop
+apt install -y btop
 apt install -y nvtop
 apt install -y duf
 apt install -y du-dust
