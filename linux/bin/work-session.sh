@@ -64,16 +64,31 @@ if [[ $profile_uuids != *"'$profile_uuid'"* ]]; then
 fi
 gsettings set "$profile_schema" label "Themed: $palette"
 gsettings set "$profile_schema" palette "$palette"
+# The profile's command exports the colorscheme, so every tab opened with it (new tabs inherit the
+# active tab's profile) gets the theme for nvim too. It also starts nvim when the marker is there
+# (rm is atomic, so a single tab claims it), then falls back to the shell when nvim exits.
+nvim_marker=${XDG_RUNTIME_DIR:-/tmp}/work-session-nvim
+gsettings set "$profile_schema" use-custom-command true
+gsettings set "$profile_schema" custom-command \
+  "env NVIM_COLORSCHEME=$colorscheme sh -c 'rm $nvim_marker 2>/dev/null && nvim; exec $SHELL'"
 
 # Ptyxis can only open a new window with the default profile, so swap it for the launch
 default_profile=$(gsettings get org.gnome.Ptyxis default-profile-uuid)
 trap 'gsettings set org.gnome.Ptyxis default-profile-uuid "$default_profile"' EXIT
 gsettings set org.gnome.Ptyxis default-profile-uuid "$profile_uuid"
 
-# the shell exports the colorscheme too, so an nvim started from it later gets the same theme.
 # setsid: when Ptyxis isn't running yet, the first launch becomes the app and doesn't return.
-setsid -f ptyxis -d "$work_dir" -- env NVIM_COLORSCHEME="$colorscheme" "$SHELL" >/dev/null 2>&1
-setsid -f ptyxis -d "$work_dir" -- env NVIM_COLORSCHEME="$colorscheme" nvim >/dev/null 2>&1
+open_window() { setsid -f ptyxis --new-window -d "$work_dir" >/dev/null 2>&1; }
+
+touch "$nvim_marker"
+open_window
+# open the shell window only once the nvim one has claimed the marker
+for _ in {1..50}; do
+  [[ -e $nvim_marker ]] || break
+  sleep 0.1
+done
+rm -f "$nvim_marker" # unclaimed: the nvim window failed to open, don't let a later tab claim it
+open_window
 sleep 1 # let Ptyxis create the windows before the default profile is restored
 
 echo "$colorscheme"
